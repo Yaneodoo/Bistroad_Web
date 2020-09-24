@@ -10,29 +10,25 @@ import { Link, useHistory } from 'react-router-dom';
 // 	review();
 // };
 
-function StoreList({ id, storeId, name, description, price, photoUri, stars }) {
+function StoreList({ info }) {
 	const history = useHistory();
-
-	const review = (storeId, id) => {
-		console.log(id);
-		let path = '/item/' + storeId + '/' + id;
-		history.push(path);
-	};
-	console.log(description);
+	console.log(info.name);
 	return (
-		<div onClick={() => review(storeId, id)} className="menu">
+		<div className="store">
 			<div className="menu_column">
-				<MenuImage image={photoUri} />
+				<MenuImage />
 			</div>
 
 			<div className="menu_column">
-				<h1>{name}</h1>
+				<h1>{info.name}</h1>
 				<div className="menu_description">
 					{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
-					{description}
+					{info.description}
 				</div>
-				<div className="menu_price">{price}</div>
-				<div className="menu_star">{stars}</div>
+				<div className="menu_price">{info.phone}</div>
+				<div className="menu_star">
+					{info.location.lat} {info.location.lng}
+				</div>
 			</div>
 		</div>
 	);
@@ -50,13 +46,7 @@ function MenuImage({ photoUri }) {
 }
 
 StoreList.propTypes = {
-	id: PropTypes.string.isRequired,
-	storeId: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
-	price: PropTypes.number.isRequired,
-	photoUri: PropTypes.string.isRequired,
-	stars: PropTypes.number.isRequired
+	info: PropTypes.object.isRequired
 };
 
 export default StoreList;

@@ -50,6 +50,11 @@
 	overflow: hidden;
 	display: flex;
 }
+
+.store {
+	width: 40%;
+}
+
 @media screen and (min-width: 320px) and (max-width: 667px) {
 	.menu {
 		width: 100%;

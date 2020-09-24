@@ -1,25 +1,39 @@
 import React, { useState, Component } from 'react';
-
-import QRCode from 'qrcode';
-import storeQR from './StoreQR';
+import Api from '../Api';
+import Owner from './OwnerPage';
+import Customer from './CustomerPage';
 
 class Profile extends Component {
+	state = {
+		stores: []
+	};
 	componentDidMount() {
-		this.generateQR();
+		this._getStoreList();
 	}
 
-	generateQR = () => {
-		let str = 'https://api.bistroad.kr/v1/stores/368056a5-bffb-4db7-bbb5-7bae9254b826';
-		console.log(str);
-		QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {
-			if (error) console.error(error);
-			else console.log('success!');
+	_getStoreList = async () => {
+		const stores = await this._callApi(); // _callApi 함수가 끝날 때까지 기다림
+		this.setState({
+			stores
 		});
+	};
+
+	_callApi = () => {
+		const { id } = this.props.user;
+
+		return Api.get('stores?ownerId=' + id).then((resp) => resp.data).catch((err) => console.log(err));
+	};
+
+	_renderStore = () => {
+		const store = this.state.stores;
+		return (
+			<Owner store={store} /> //key prop으로 index 작성
+		);
 	};
 
 	render() {
 		const { fullName, username, id, role, phone } = this.props.user;
-
+		const { stores } = this.state;
 		return (
 			<div style={{ minHeight: '700px' }}>
 				<h1 style={{ marginLeft: '2px' }}>마이페이지</h1>
@@ -28,11 +42,18 @@ class Profile extends Component {
 					<dd>
 						{fullName} {role === 'ROLE_STORE_OWNER' ? '점주님' : '손님'}
 					</dd>
-					<dt>Id</dt>
-					<dd>{username}</dd>
+					<dt>아이디</dt>
+					<dd>{username}</dd> <br />
 					<div>
-						{role === 'ROLE_STORE_OWNER' ? <storeQR /> : null}
-						<canvas id="canvas" />
+						{role === 'ROLE_STORE_OWNER' ? stores ? (
+							this._renderStore()
+						) : (
+							'Loading Store List'
+						) : (
+							<Customer />
+						)}
+						{/* {role === 'ROLE_STORE_OWNER' && stores && this._renderStore()}
+						{role === 'ROLE_USER' ? <Customer /> : null} */}
 					</div>
 					{/* <div>
 					{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
