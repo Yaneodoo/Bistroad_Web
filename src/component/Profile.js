@@ -2,6 +2,7 @@ import React, { useState, Component } from 'react';
 import Api from '../Api';
 import Owner from './OwnerPage';
 import Customer from './CustomerPage';
+import InHeader from './InHeader';
 
 class Profile extends Component {
 	state = {
@@ -36,30 +37,26 @@ class Profile extends Component {
 		const { stores } = this.state;
 		return (
 			<div style={{ minHeight: '700px' }}>
-				<h1 style={{ marginLeft: '2px' }}>마이페이지</h1>
-				<div style={{ marginLeft: '3rem' }}>
-					<dt>이름</dt>
-					<dd>
-						{fullName} {role === 'ROLE_STORE_OWNER' ? '점주님' : '손님'}
-					</dd>
-					<dt>아이디</dt>
-					<dd>{username}</dd> <br />
-					<div>
-						{role === 'ROLE_STORE_OWNER' ? stores ? (
-							this._renderStore()
-						) : (
-							'Loading Store List'
-						) : (
-							<Customer />
-						)}
-						{/* {role === 'ROLE_STORE_OWNER' && stores && this._renderStore()}
-						{role === 'ROLE_USER' ? <Customer /> : null} */}
+				<InHeader />
+				<div style={{ paddingLeft: '24px', paddingRight: '24px' }}>
+					<h1 style={{ marginLeft: '2px' }}>마이페이지</h1>
+					<div style={{ marginLeft: '3rem' }}>
+						<dt>이름</dt>
+						<dd>
+							{fullName} {role === 'ROLE_STORE_OWNER' ? '점주님' : '손님'}
+						</dd>
+						<dt>아이디</dt>
+						<dd>{username}</dd> <br />
+						<div>
+							{role === 'ROLE_STORE_OWNER' ? stores ? (
+								this._renderStore()
+							) : (
+								'Loading Store List'
+							) : (
+								<Customer />
+							)}
+						</div>
 					</div>
-					{/* <div>
-					{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
-					role === 'ROLE_STORE_OWNER' ? renderQr() : null}
-				</div> */}
-					{/* 조건문으로 role 판단하여 qrcode 출력 */}
 				</div>
 			</div>
 		);

@@ -3,12 +3,16 @@ import { Button } from '@material-ui/core';
 import classNames from 'classnames/bind';
 import createMuiTheme from '@material-ui/styles/createStyles';
 import Api from '../Api.js';
-import styles from './SignUp.scss';
-import { Link } from 'react-router-dom';
+import s from './SignUp.scss';
 import InHeader from './InHeader';
 import checkName from '../actions/checkUsername';
-
-const cx = classNames.bind(styles);
+import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+const cx = classNames.bind(s);
 
 const btnTheme = createMuiTheme({
 	maxWidth: '30px',
@@ -32,15 +36,6 @@ class SignUp extends Component {
 			usableId: false
 		};
 	}
-
-	// const [ check, setCheck ] = useState(null);
-	// const [ username, setUsername ] = useState('');
-	// const [ password, setPassword ] = useState('');
-	// const [ pwCheck, setPwCheck ] = useState('');
-	// const [ fullName, setFullname ] = useState('');
-	// const [ phone, setPhone ] = useState('');
-	// const [ role, setRole ] = useState('');
-	// const [ usableId, setUsableId ] = useState(false);
 
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -82,6 +77,7 @@ class SignUp extends Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
 			<div style={{ minHeight: '700px', textAlign: 'center' }}>
 				<InHeader />
@@ -94,34 +90,39 @@ class SignUp extends Component {
 						alignItems: 'center'
 					}}
 				>
-					<form type="submit" style={{ display: 'inline-block' }}>
+					<form
+						type="submit"
+						style={{
+							display: 'inline-block',
+							width: '30ch'
+						}}
+					>
 						<table className={cx('table')}>
 							<tbody>
 								<tr>
-									<td colSpan="2" className={cx('th')}>
-										이름
-									</td>
-								</tr>
-								<tr>
-									<td colSpan="2" className={cx('td')}>
-										<input
+									<td className={cx('td')}>
+										<TextField
+											id="outlined-basic"
+											label="이름"
+											variant="outlined"
+											size="small"
 											type="text"
 											name="fullName"
 											onChange={({ target: { value } }) =>
 												this.setState({
 													fullName: value
 												})}
+											style={{ width: '250px' }}
 										/>
-									</td>
-								</tr>
-								<tr>
-									<td colSpan="2" className={cx('th')}>
-										아이디
 									</td>
 								</tr>
 								<tr className={cx('td')}>
 									<td>
-										<input
+										<TextField
+											id="outlined-basic"
+											label="아이디"
+											variant="outlined"
+											size="small"
 											type="text"
 											name="username"
 											onChange={({ target: { value } }) =>
@@ -131,73 +132,80 @@ class SignUp extends Component {
 										/>
 									</td>
 									<td>
-										<button className={cx('button')} onClick={this.handleCheck}>
+										<Button
+											theme={btnTheme}
+											color="primary"
+											variant="outlined"
+											size="small"
+											onClick={this.handleCheck}
+											classname={cx('root')}
+											style={{ height: '2.5rem', fontSize: '0.65rem', padding: '1px' }}
+										>
 											중복확인
-										</button>
+										</Button>
 									</td>
 								</tr>
 								<tr>
-									<td colSpan="2" className={cx('th')}>
-										비밀번호
-									</td>
-								</tr>
-								<tr>
-									<td colSpan="2" className={cx('td')}>
-										<input
+									<td className={cx('td')}>
+										<TextField
+											id="outlined-basic"
+											label="비밀번호"
+											variant="outlined"
+											size="small"
 											type="password"
 											name="password"
 											onChange={({ target: { value } }) =>
 												this.setState({
 													password: value
 												})}
+											style={{ width: '250px' }}
 										/>
 									</td>
 								</tr>
 								<tr>
-									<td colSpan="2" className={cx('th')}>
-										핸드폰
-									</td>
-								</tr>
-								<tr>
-									<td colSpan="2" className={cx('td')}>
-										<input
+									<td className={cx('td')}>
+										<TextField
+											id="outlined-basic"
+											label="핸드폰"
+											variant="outlined"
+											size="small"
 											type="text"
 											name="phone"
 											onChange={({ target: { value } }) =>
 												this.setState({
 													phone: value
 												})}
+											style={{ width: '250px' }}
 										/>
 									</td>
 								</tr>
-								<tr>
-									<td colSpan="2" className={cx('th')}>
-										유형
-									</td>
-								</tr>
 								<tr className={cx('type')}>
-									<td>
-										<input
-											type="radio"
-											name="role"
-											value="ROLE_USER"
-											onChange={({ target: { value } }) =>
-												this.setState({
-													role: value
-												})}
-										/>손님
-									</td>
-									<td>
-										<input
-											type="radio"
-											name="role"
-											value="ROLE_STORE_OWNER"
-											onChange={({ target: { value } }) =>
-												this.setState({
-													role: value
-												})}
-										/>점주
-									</td>
+									<FormControl component="fieldset">
+										<FormLabel style={{ display: 'inline-block', textAlign: 'left' }}>유형</FormLabel>
+										<RadioGroup row aria-label="position" name="role" defaultValue="top">
+											<FormControlLabel
+												name="role"
+												value="ROLE_USER"
+												onChange={({ target: { value } }) =>
+													this.setState({
+														role: value
+													})}
+												control={<Radio color="primary" />}
+												label="손님"
+												style={{ fontSize: '0.8rem' }}
+											/>
+											<FormControlLabel
+												name="role"
+												value="ROLE_STORE_OWNER"
+												onChange={({ target: { value } }) =>
+													this.setState({
+														role: value
+													})}
+												control={<Radio color="primary" />}
+												label="점주"
+											/>
+										</RadioGroup>
+									</FormControl>
 								</tr>
 								<tr>
 									<td colSpan="2">
