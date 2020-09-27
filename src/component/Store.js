@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { hexToRgb } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import StoreList from './StoreList';
+import { StoreList, MenuList } from './StoreList';
 import StoreInfo from './StoreInfo';
 import Api from '../Api';
+import InHeader from './InHeader';
 
 class Store extends Component {
+	static defaultProps = {
+		user: null
+	};
 	state = {};
 
 	componentDidMount() {
@@ -17,10 +21,10 @@ class Store extends Component {
 		const menu = this.state.menu.map((item, index) => {
 			console.log(item);
 			return (
-				<StoreList
-					id={item.id}
-					storeId={item.storeId}
+				<MenuList
 					name={item.name}
+					storeId={item.storeId}
+					id={item.id}
 					description={item.description}
 					price={item.price}
 					photoUri={item.photoUri}
@@ -78,14 +82,14 @@ class Store extends Component {
 		// const { id, storeId, name, storeName, description, price, photoUri, stars } = this.props.info;
 		// const { params } = this.props.match;
 		// Api.get('/stores/' + params.storeId + '/items').then(this.setState({ information: [ Response.data ] }));
-
+		const { user } = this.props;
+		console.log(user);
 		const { menu, storeInfo } = this.state;
 		return (
 			<Typography
 				component="div"
 				// align="center"
 				style={{
-					backgroundColor: hexToRgb('#FEDFDB'),
 					padding: '50px',
 					display: 'flex',
 					justifyContent: 'space-around',
@@ -93,11 +97,14 @@ class Store extends Component {
 					fontSize: '14px'
 				}}
 			>
-				<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
-				<div style={{ textAlign: 'left', display: 'block', width: '100%' }}>메뉴 리스트</div>
-				<div>
-					{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
-					menu ? this._renderMenu() : 'Loading'}
+				<InHeader />
+				<div style={{ minHeight: '700px' }}>
+					<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
+					<div style={{ textAlign: 'left', display: 'block', width: '100%' }}>메뉴 리스트</div>
+					<div>
+						{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
+						menu ? this._renderMenu() : 'Loading'}
+					</div>
 				</div>
 			</Typography>
 		);

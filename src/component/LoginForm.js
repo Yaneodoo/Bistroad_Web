@@ -5,6 +5,7 @@ import InHeader from './InHeader';
 
 import createMuiTheme from '@material-ui/styles/createStyles';
 import { Button } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 
 function LoginForm({ authenticated, login, location }) {
 	const [ username, setUsername ] = useState('');
@@ -43,17 +44,25 @@ function LoginForm({ authenticated, login, location }) {
 			>
 				<form style={{ display: 'flex', flexDirection: 'column' }}>
 					<h3 style={{ textAlign: 'center' }}>로그인</h3>
-					<input
+					<TextField
+						id="outlined-basic"
+						label="아이디"
+						variant="outlined"
+						size="small"
+						type="text"
 						style={{ marginBottom: '1.5rem' }}
 						minHeight="1.5rem"
-						placeholder="아이디"
-						type="text"
 						name="username"
 						onChange={({ target: { value } }) => setUsername(value)}
 					/>
-					<input
+					<TextField
+						id="outlined-basic"
+						label="비밀번호"
+						variant="outlined"
+						size="small"
 						style={{ marginBottom: '1.5rem' }}
-						placeholder="비밀번호"
+						minHeight="1.5rem"
+						style={{ marginBottom: '1.5rem' }}
 						type="password"
 						name="password"
 						onChange={({ target: { value } }) => setPassword(value)}

@@ -10,9 +10,7 @@ import { Link, useHistory } from 'react-router-dom';
 // 	review();
 // };
 
-function StoreList({ info }) {
-	const history = useHistory();
-	console.log(info.name);
+export function StoreList({ info }) {
 	return (
 		<div className="store">
 			<div className="menu_column">
@@ -29,6 +27,32 @@ function StoreList({ info }) {
 				<div className="menu_star">
 					{info.location.lat} {info.location.lng}
 				</div>
+			</div>
+		</div>
+	);
+}
+
+export function MenuList({ id, storeId, name, description, price, photoUri, stars }) {
+	const history = useHistory();
+	const review = (storeId, id) => {
+		console.log(id);
+		let path = '/item/' + storeId + '/' + id;
+		history.push(path);
+	};
+	return (
+		<div className="menu" onClick={() => review(storeId, id)}>
+			<div className="menu_column">
+				<MenuImage />
+			</div>
+
+			<div className="menu_column">
+				<h1>{name}</h1>
+				<div className="menu_description">
+					{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
+					{description}
+				</div>
+				<div className="menu_price">{price}</div>
+				<div className="menu_star">{stars}</div>
 			</div>
 		</div>
 	);

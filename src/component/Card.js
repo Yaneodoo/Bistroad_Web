@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -45,11 +46,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeReviewCard({ info }) {
+	const history = useHistory();
 	const classes = useStyles();
 	const [ expanded ] = React.useState(false);
+	const storeId = info.id;
+	const store = () => {
+		let path = '/store/' + storeId;
+		history.push(path);
+	};
 
 	return (
-		<Card className={classes.root}>
+		<Card
+			className={classes.root}
+			onClick={() => {
+				store();
+			}}
+		>
 			<CardHeader title={info.name} subheader={info.phone} />
 			<CardMedia
 				className={classes.media}

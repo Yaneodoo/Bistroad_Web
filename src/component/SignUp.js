@@ -5,7 +5,6 @@ import createMuiTheme from '@material-ui/styles/createStyles';
 import Api from '../Api.js';
 import s from './SignUp.scss';
 import InHeader from './InHeader';
-import checkName from '../actions/checkUsername';
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
