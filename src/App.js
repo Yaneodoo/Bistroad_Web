@@ -66,6 +66,7 @@ function App() {
 						render={(props) => <LoginForm authenticated={authenticated} login={login} {...props} />}
 					/>
 					<Route path="/signUp" component={SignUp} />
+					<Route path="/store/:storeId/:ownerId" component={Store} />
 					<Route path="/store/:storeId" component={Store} />
 					<Route path="/item/:storeId/:itemId" component={Review} />
 					<AuthRoute

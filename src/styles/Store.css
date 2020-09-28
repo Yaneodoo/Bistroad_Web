@@ -1,11 +1,11 @@
 .menu {
 	background-color: white;
-	width: 40%;
-	display: flex;
+	width: 300px;
+	display: inline-block;
 	justify-content: space-between;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	margin-bottom: 50px;
+	margin: 50px;
 	text-overflow: ellipsis;
 	padding: 0 10px;
 	box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
@@ -21,12 +21,15 @@
 }
 
 .menu_column {
+	display: flex;
 	width: 30%;
 	box-sizing: border-box;
 	text-overflow: ellipsis;
 }
 
 .menu_column:last-child {
+	display: flex;
+
 	padding: 20px 0;
 	width: 40%;
 }
@@ -39,6 +42,7 @@
 }
 
 .menu h1 {
+	display: flex;
 	font-size: 20px;
 	font-weight: 600;
 }

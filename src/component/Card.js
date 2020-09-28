@@ -51,7 +51,7 @@ export default function RecipeReviewCard({ info }) {
 	const [ expanded ] = React.useState(false);
 	const storeId = info.id;
 	const store = () => {
-		let path = '/store/' + storeId;
+		let path = '/store/' + storeId + '/' + info.ownerId;
 		history.push(path);
 	};
 

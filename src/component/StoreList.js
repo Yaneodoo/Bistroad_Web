@@ -43,10 +43,10 @@ export function MenuList({ id, storeId, name, description, price, photoUri, star
 		<div className="menu" onClick={() => review(storeId, id)}>
 			<div className="menu_column">
 				<MenuImage />
+				<h1>{name}</h1>
 			</div>
 
 			<div className="menu_column">
-				<h1>{name}</h1>
 				<div className="menu_description">
 					{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
 					{description}
