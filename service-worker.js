@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Bistroad_Web/precache-manifest.990d4ac79a46fcb9eabda597aa2c4b19.js"
+  "/Bistroad_Web/precache-manifest.65b7b13d740766ca81b661a4600c7300.js"
 );
 
 self.addEventListener('message', (event) => {
