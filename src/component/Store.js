@@ -108,10 +108,9 @@ class Store extends Component {
 
 	generateQR = () => {
 		const { params } = this.props.match;
-		console.log(params);
 
 		if (params.ownerId) {
-			let str = 'https://api.bistroad.kr/v1/stores/368056a5-bffb-4db7-bbb5-7bae9254b826';
+			let str = 'https://api.bistroad.kr/v1/stores/' + params.storeId;
 			console.log(str);
 			QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {
 				if (error) console.error(error);
