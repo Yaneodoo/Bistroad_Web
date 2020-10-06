@@ -34,7 +34,7 @@ function App() {
 	const logout = () => setUser(null);
 
 	return (
-		<Router>
+		<Router basename={process.env.PUBLIC_URL}>
 			<header className={cx('header')}>
 				<ul className={cx('ul')}>
 					{authenticated ? (

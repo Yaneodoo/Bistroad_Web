@@ -68,6 +68,7 @@ class Store extends Component {
 				description={info.description}
 				phone={info.phone}
 				location={info.location}
+				address={info.address}
 			/> //key prop으로 index 작성
 		);
 	};
@@ -110,7 +111,7 @@ class Store extends Component {
 		const { params } = this.props.match;
 
 		if (params.ownerId) {
-			let str = 'https://api.bistroad.kr/v1/stores/' + params.storeId;
+			let str = 'https://yaneodoo.github.io/Bistroad_Web/store/' + params.storeId; // qr url 변경 필요
 			console.log(str);
 			QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {
 				if (error) console.error(error);
@@ -143,26 +144,31 @@ class Store extends Component {
 				}}
 			>
 				<InHeader />
-				<div style={{ minHeight: '700px', margin: '0px 50px' }}>
-					<div>
-						<Paper>
-							<Grid container spacing={2}>
-								<Grid item xs={15} sm container>
-									<Grid item xs container direction="column" spacing={2}>
-										<Grid item xs>
-											{storeInfo ? this._renderStore() : 'Loading Store'}
-										</Grid>
-									</Grid>
-									<Grid item>
-										<Typography variant="subtitle1">
-											<canvas id="canvas" />
-										</Typography>
-									</Grid>
+				<div style={{ minHeight: '900px', margin: '0px 25px' }}>
+					<Paper style={{ margin: '5px 5px' }}>
+						<Grid container spacing={2}>
+							<Grid item xs={15} sm container>
+								<Grid item xs container direction="column" spacing={2}>
+									<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
+								</Grid>
+								<Grid item>
+									<canvas id="canvas" style={{ width: '150px', height: '150px' }} />
 								</Grid>
 							</Grid>
-						</Paper>
-					</div>
-					<div style={{ textAlign: 'left', display: 'block', width: '100%' }}>메뉴 리스트</div>
+						</Grid>
+					</Paper>
+					<br />
+					<h2
+						style={{
+							textAlign: 'left',
+							display: 'block',
+							width: '80%',
+							marginRight: '24px',
+							marginLeft: '24px'
+						}}
+					>
+						메뉴 리스트
+					</h2>
 					<div>
 						{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
 						menu ? this._renderMenu() : 'Loading'}

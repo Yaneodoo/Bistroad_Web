@@ -39,7 +39,7 @@ class Profile extends Component {
 			<div style={{ minHeight: '700px' }}>
 				<InHeader />
 				<div style={{ paddingLeft: '24px', paddingRight: '24px' }}>
-					<h1 style={{ marginLeft: '2px' }}>마이페이지</h1>
+					<h2 style={{ marginLeft: '2px' }}>마이페이지</h2>
 					<div style={{ marginLeft: '3rem' }}>
 						<dt>이름</dt>
 						<dd>

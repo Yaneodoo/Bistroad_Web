@@ -8,14 +8,14 @@ const handleClick = (e) => {
 	console.log(e);
 };
 
-function StoreInfo({ id, name, description, phone, location }) {
+function StoreInfo({ id, name, description, phone, location, address }) {
 	return (
 		<div className="store">
 			<h1 style={{ display: 'flex', textAlign: 'center' }}>{name}</h1>
 			{/* <h4 style={{ display: 'flex' }}>
 				{location.lat} {location.lng}
 			</h4> */}
-			<h4 style={{ display: 'flex', textAlign: 'center' }}>서울시 강남구 남부순환로 2942</h4>
+			<div style={{ display: 'block', textAlign: 'left', fontSize: '0.7rem' }}>{address}</div>
 		</div>
 		// <div onClick={handleClick} className="menu">
 		// 	<div className="menu_column">

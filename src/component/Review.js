@@ -50,6 +50,7 @@ class Review extends Component {
 				description={info.description}
 				phone={info.phone}
 				location={info.location}
+				address={info.address}
 			/> //key prop으로 index 작성
 		);
 	};
