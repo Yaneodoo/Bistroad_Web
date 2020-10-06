@@ -82,7 +82,7 @@ class Store extends Component {
 
 	_callStoreApi = () => {
 		const { params } = this.props.match;
-		console.log(params);
+		console.log(params.storeId);
 		return Api.get('/stores/' + params.storeId).then((resp) => resp.data).catch((err) => console.log(err));
 	};
 

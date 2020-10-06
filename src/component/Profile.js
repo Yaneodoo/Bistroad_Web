@@ -40,13 +40,11 @@ class Profile extends Component {
 				<InHeader />
 				<div style={{ paddingLeft: '24px', paddingRight: '24px' }}>
 					<h2 style={{ marginLeft: '2px' }}>마이페이지</h2>
-					<div style={{ marginLeft: '3rem' }}>
+					<div style={{ marginLeft: '5px' }}>
 						<dt>이름</dt>
-						<dd>
+						<dd style={{ marginBottom: '10px' }}>
 							{fullName} {role === 'ROLE_STORE_OWNER' ? '점주님' : '손님'}
 						</dd>
-						<dt>아이디</dt>
-						<dd>{username}</dd> <br />
 						<div>
 							{role === 'ROLE_STORE_OWNER' ? stores ? (
 								this._renderStore()

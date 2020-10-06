@@ -2,13 +2,48 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Store.css';
 import LinesEllipsis from 'react-lines-ellipsis';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { red, yellow } from '@material-ui/core/colors';
 import { Link, useHistory } from 'react-router-dom';
+import StarIcon from '@material-ui/icons/Star';
 
-// handleClick = (e) => {
-// 	// alert(id);
-// 	console.log(id);
-// 	review();
-// };
+const useStyles = makeStyles((theme) => ({
+	root: {
+		maxWidth: '300px',
+		minHeight: '200px',
+		marginBottom: '2rem',
+		marginRight: '20px',
+		display: 'inline-block',
+		margin: '5px',
+		width: '40%',
+		cursor: 'pointer'
+	},
+	name: {
+		fontSize: '1rem'
+	},
+	media: {
+		height: 0,
+		paddingTop: '56.25%' // 16:9
+	},
+	expand: {
+		transform: 'rotate(0deg)',
+		marginLeft: 'auto',
+		transition: theme.transitions.create('transform', {
+			duration: theme.transitions.duration.shortest
+		})
+	},
+	expandOpen: {
+		transform: 'rotate(180deg)'
+	},
+	avatar: {
+		backgroundColor: red[500]
+	}
+}));
 
 export function StoreList({ info }) {
 	return (
@@ -34,27 +69,46 @@ export function StoreList({ info }) {
 
 export function MenuList({ id, storeId, name, description, price, photoUri, stars }) {
 	const history = useHistory();
+	const classes = useStyles();
+	const [ expanded ] = React.useState(false);
 	const review = (storeId, id) => {
 		console.log(id);
 		let path = '/item/' + storeId + '/' + id;
 		history.push(path);
 	};
 	return (
-		<div className="menu" onClick={() => review(storeId, id)}>
-			<div className="menu_column">
-				<MenuImage />
-				<h1>{name}</h1>
-			</div>
-
-			<div className="menu_column">
-				<div className="menu_description">
-					{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
-					{description}
+		<Card className={classes.root} onClick={() => review(storeId, id)}>
+			<CardHeader classes={{ title: classes.name }} title={name} subheader={price} />
+			<CardMedia
+				className={classes.media}
+				image="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fldb.phinf.naver.net%2F20200416_191%2F1587005465013afNYI_JPEG%2F%25BE%25F7%25C3%25BC%25C0%25DA%25C3%25BC_20200416_327581_%25B7%25B9%25B5%25E5175-%25B4%25EB%25C4%25A1%25BF%25AA%25C1%25A1_175%25B6%25B1%25BA%25BA%25C0%25CC_1080x640.jpg"
+				title={name}
+			/>
+			<CardContent>
+				<Typography variant="body2" color="textSecondary" component="p">
+					<LinesEllipsis text={description} maxLine="1" ellipsis="..." trimRight basedOn="letters" />
+				</Typography>
+				<div>
+					<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
+					<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
 				</div>
-				<div className="menu_price">{price}</div>
-				<div className="menu_star">{stars}</div>
-			</div>
-		</div>
+			</CardContent>
+		</Card>
+		// <div className="menu" onClick={() => review(storeId, id)}>
+		// 	<div className="menu_column">
+		// 		<MenuImage />
+		// 		<h1>{name}</h1>
+		// 	</div>
+
+		// 	<div className="menu_column">
+		// 		<div className="menu_description">
+		// 			{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
+		// 			{description}
+		// 		</div>
+		// 		<div className="menu_price">{price}</div>
+		// 		<div className="menu_star">{stars}</div>
+		// 	</div>
+		// </div>
 	);
 }
 

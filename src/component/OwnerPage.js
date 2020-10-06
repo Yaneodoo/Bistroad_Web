@@ -6,18 +6,6 @@ import Card from './Card';
 
 class Owner extends Component {
 	state = {};
-	componentDidMount() {
-		this.generateQR();
-	}
-
-	generateQR = () => {
-		let str = 'https://api.bistroad.kr/v1/stores/368056a5-bffb-4db7-bbb5-7bae9254b826';
-		console.log(str);
-		QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {
-			if (error) console.error(error);
-			else console.log('success!');
-		});
-	};
 
 	// _getStoreList = async () => {
 	// 	const stores = await this._callApi(); // _callApi 함수가 끝날 때까지 기다림
@@ -50,12 +38,7 @@ class Owner extends Component {
 		console.log(store);
 
 		const stores = store.map((info) => <Card info={info} key={info.id} />);
-		return (
-			<div>
-				{stores}
-				<canvas id="canvas" />
-			</div>
-		);
+		return <div>{stores}</div>;
 	}
 }
 
