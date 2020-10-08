@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6e39347f17c0356493f52bea0906229e",
+    "revision": "7187d883557a799d39472660b6a3a5a2",
     "url": "/Bistroad_Web/index.html"
   },
   {
-    "revision": "3cc4cc830faaee3ed119",
+    "revision": "7ca7aff45b83a0dc65ed",
     "url": "/Bistroad_Web/static/css/main.38450ddf.chunk.css"
   },
   {
-    "revision": "77bc798e33d1a0246c74",
-    "url": "/Bistroad_Web/static/js/2.ede5c10e.chunk.js"
+    "revision": "fc4f548a9b91bf3ae32a",
+    "url": "/Bistroad_Web/static/js/2.88d51172.chunk.js"
   },
   {
     "revision": "872d4ad223c39fec1068d862c0b329ff",
-    "url": "/Bistroad_Web/static/js/2.ede5c10e.chunk.js.LICENSE.txt"
+    "url": "/Bistroad_Web/static/js/2.88d51172.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3cc4cc830faaee3ed119",
-    "url": "/Bistroad_Web/static/js/main.e7bd9738.chunk.js"
+    "revision": "7ca7aff45b83a0dc65ed",
+    "url": "/Bistroad_Web/static/js/main.04def949.chunk.js"
   },
   {
     "revision": "31bb9aa5e0dbfa7f8758",
