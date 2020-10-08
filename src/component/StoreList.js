@@ -67,7 +67,7 @@ export function StoreList({ info }) {
 	);
 }
 
-export function MenuList({ id, storeId, name, description, price, photoUri, stars }) {
+export function MenuList({ id, storeId, name, description, price, photo, stars }) {
 	const history = useHistory();
 	const classes = useStyles();
 	const [ expanded ] = React.useState(false);
@@ -76,14 +76,18 @@ export function MenuList({ id, storeId, name, description, price, photoUri, star
 		let path = '/item/' + storeId + '/' + id;
 		history.push(path);
 	};
+	if (!photo) {
+		photo = {
+			thumbnailUrl:
+				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU',
+			sourceUrl:
+				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU'
+		};
+	}
 	return (
 		<Card className={classes.root} onClick={() => review(storeId, id)}>
 			<CardHeader classes={{ title: classes.name }} title={name} subheader={price} />
-			<CardMedia
-				className={classes.media}
-				image="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fldb.phinf.naver.net%2F20200416_191%2F1587005465013afNYI_JPEG%2F%25BE%25F7%25C3%25BC%25C0%25DA%25C3%25BC_20200416_327581_%25B7%25B9%25B5%25E5175-%25B4%25EB%25C4%25A1%25BF%25AA%25C1%25A1_175%25B6%25B1%25BA%25BA%25C0%25CC_1080x640.jpg"
-				title={name}
-			/>
+			<CardMedia className={classes.media} image={photo.thumbnailUrl} title={name} />
 			<CardContent>
 				<Typography variant="body2" color="textSecondary" component="p">
 					<LinesEllipsis text={description} maxLine="1" ellipsis="..." trimRight basedOn="letters" />

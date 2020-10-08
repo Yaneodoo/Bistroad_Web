@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import { hexToRgb } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import { StoreList, MenuList } from './StoreList';
+import { MenuList } from './StoreList';
 import StoreInfo from './StoreInfo';
 import Api from '../Api';
 import InHeader from './InHeader';
@@ -34,7 +33,7 @@ class Store extends Component {
 					id={item.id}
 					description={item.description}
 					price={item.price}
-					photoUri={item.photoUri}
+					photo={item.photo}
 					stars={item.stars}
 					key={item.id}
 				/> //key prop으로 index 작성
@@ -107,6 +106,22 @@ class Store extends Component {
 		}
 	}));
 
+	// 캔버스에 이미지 추가하기
+	addToCanvas(ctx, image, x, y) {
+		var img = new Image();
+		const width = 150;
+		const height = 150;
+		img.src = image;
+		img.onload = function() {
+			var scale = Math.max(width / img.width, height / img.height);
+			// get the top left position of the image
+			var x = width / 2 - img.width / 2 * scale;
+			var y = height / 2 - img.height / 2 * scale;
+			ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+		};
+		return image;
+	}
+
 	generateQR = () => {
 		const { params } = this.props.match;
 
@@ -117,6 +132,14 @@ class Store extends Component {
 				if (error) console.error(error);
 				else console.log('success!');
 			});
+		} else {
+			const ctx = document.getElementById('canvas').getContext('2d');
+			var imgClo = new Image();
+			Api.get('/stores/' + params.storeId)
+				.then((resp) => resp.data)
+				.then((resp) => this.addToCanvas(ctx, resp.photo.thumbnailUrl, 0, 0))
+				.then((resp) => console.log(resp))
+				.catch((err) => console.log(err));
 		}
 	};
 
@@ -127,11 +150,6 @@ class Store extends Component {
 		const { menu, storeInfo } = this.state;
 		const { params } = this.props.match;
 
-		if (!params.ownerId) {
-			console.log('if' + params.ownerId);
-		} else {
-			console.log(params.ownerId);
-		}
 		return (
 			<Typography
 				component="div"
@@ -152,7 +170,7 @@ class Store extends Component {
 									<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
 								</Grid>
 								<Grid item>
-									<canvas id="canvas" style={{ width: '150px', height: '150px' }} />
+									<canvas id="canvas" width={150} height={150} />
 								</Grid>
 							</Grid>
 						</Grid>

@@ -51,6 +51,15 @@ export default function RecipeReviewCard({ info }) {
 		history.push(path);
 	};
 
+	if (!info.photo) {
+		info.photo = {
+			thumbnailUrl:
+				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU',
+			sourceUrl:
+				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU'
+		};
+	}
+
 	return (
 		<Card
 			className={classes.root}
@@ -59,11 +68,7 @@ export default function RecipeReviewCard({ info }) {
 			}}
 		>
 			<CardHeader classes={{ title: classes.name }} title={info.name} subheader={info.phone} />
-			<CardMedia
-				className={classes.media}
-				image="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fldb.phinf.naver.net%2F20200416_191%2F1587005465013afNYI_JPEG%2F%25BE%25F7%25C3%25BC%25C0%25DA%25C3%25BC_20200416_327581_%25B7%25B9%25B5%25E5175-%25B4%25EB%25C4%25A1%25BF%25AA%25C1%25A1_175%25B6%25B1%25BA%25BA%25C0%25CC_1080x640.jpg"
-				title={info.name}
-			/>
+			<CardMedia className={classes.media} image={info.photo.thumbnailUrl} title={info.name} />
 			<CardContent>
 				<Typography variant="body2" color="textSecondary" component="p">
 					{info.description}
