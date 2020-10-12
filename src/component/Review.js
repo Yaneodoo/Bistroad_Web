@@ -21,6 +21,8 @@ class Review extends Component {
 					contents={review.contents}
 					stars={review.stars}
 					key={review.orderId}
+					photo={review.photo}
+					item={review.item}
 				/> //key prop으로 index 작성
 			);
 		});

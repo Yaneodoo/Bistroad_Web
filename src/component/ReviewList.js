@@ -5,13 +5,15 @@ import LinesEllipsis from 'react-lines-ellipsis';
 import { Link, useHistory } from 'react-router-dom';
 import Api from '../Api';
 
-// handleClick = (e) => {
-// 	// alert(id);
-// 	console.log(id);
-// 	review();
-// };
+import { makeStyles,useTheme  } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
 
-function ReviewList({ writer, orderId, contents, stars, photoUri }) {
+function ReviewList({ writer, orderId, contents, stars, photoUri, photo, item }) {
 	const history = useHistory();
 
 	const [ user, setUser ] = useState(null);
@@ -22,43 +24,81 @@ function ReviewList({ writer, orderId, contents, stars, photoUri }) {
 		history.push(path);
 	};
 
-	// const _callUserApi = () => {
-	// 	return Api.get('/users/' + writerId).then((resp) => resp.data.fullName).catch((err) => console.log(err));
-	// };
+	const useStyles = makeStyles((theme) => ({
+		root: {
+		  display: 'flex',
+		  width: 250
+		},
+		details: {
+		  display: 'flex',
+		  flexDirection: 'column',
+		},
+		name: {
+			fontSize: '1rem'
+		},
+		content: {
+		  flex: '1 0 auto',
+		},
+		cover: {
+		  width: 151,
+		},
+		controls: {
+		  display: 'flex',
+		  alignItems: 'center',
+		  paddingLeft: theme.spacing(1),
+		  paddingBottom: theme.spacing(1),
+		},
+		playIcon: {
+		  height: 38,
+		  width: 38,
+		},
+	  }));
 
-	// const _getUserInfo = async () => {
-	// 	const userInfo = await _callUserApi();
-	// 	console.log(userInfo);
-	// 	return userInfo;
-	// };
+	const classes = useStyles();
+	const theme = useTheme();
 
-	// const renderUser = () => {
-	// 	_getUserInfo().then((user) => {
-	// 		setUser(user);
-	// 		console.log('user: ' + user);
-
-	// 		return <div>{user}</div>;
-	// 	});
-	// };
-
+	if (!photo) {
+		photo = {
+			thumbnailUrl:
+				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU',
+			sourceUrl:
+				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU'
+		};
+	}
 	return (
-		<div className="menu">
-			<div className="menu_column">
-				<ReviewImage image={photoUri} />
-			</div>
+		<Card className={classes.root}>
+					<CardMedia
+		  className={classes.cover}
+		  image={photo.thumbnailUrl}
+		  title={item.name}
+		/>
+		  <CardContent className={classes.content}>
+			<Typography component="div" variant="h6">
+				{writer.username}
+			</Typography>
+			<Typography variant="subtitle2" color="textSecondary">
+			  {contents}
+			</Typography>
+		  </CardContent>
 
-			<div style={{ padding: '0px 20px' }}>
-				<h1>
-					{/* {// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
-					user === null ? renderUser() : user} */}
-					{writer.username}
-				</h1>
-				<div className="menu_description">
-					<LinesEllipsis text={contents} maxLine="3" ellipsis="..." trimRight basedOn="letters" />
-				</div>
-				<div className="menu_star">평점: {stars}</div>
-			</div>
-		</div>
+	  </Card>
+		// <div className="menu">
+		// 	<div className="menu_column">
+		// 		<ReviewImage image={photoUri} />
+		// 	</div>
+
+		// 	<div style={{ padding: '0px 20px' }}>
+		// 		<h1>
+		// 			{/* {// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
+		// 			user === null ? renderUser() : user} */}
+		// 			{writer.username}
+		// 		</h1>
+		// 		<div className="menu_description">
+		// 			<LinesEllipsis text={contents} maxLine="3" ellipsis="..." trimRight basedOn="letters" />
+		// 		</div>
+		// 		<div className="menu_star">평점: {stars}</div>
+		// 	</div>
+		// </div>
 	);
 }
 
@@ -78,8 +118,9 @@ ReviewList.propTypes = {
 	writerId: PropTypes.string.isRequired,
 	orderId: PropTypes.string.isRequired,
 	contents: PropTypes.string.isRequired,
-	photoUri: PropTypes.string.isRequired,
-	stars: PropTypes.number.isRequired
+	photo: PropTypes.object.isRequired,
+	stars: PropTypes.number.isRequired,
+	item: PropTypes.object.isRequired
 };
 
 export default ReviewList;
