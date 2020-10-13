@@ -21,7 +21,6 @@ class Profile extends Component {
 
 	_callApi = () => {
 		const { id } = this.props.user;
-
 		return Api.get('stores?ownerId=' + id).then((resp) => resp.data).catch((err) => console.log(err));
 	};
 
