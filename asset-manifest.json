@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Bistroad_Web/static/css/main.38450ddf.chunk.css",
-    "main.js": "/Bistroad_Web/static/js/main.04def949.chunk.js",
-    "main.js.map": "/Bistroad_Web/static/js/main.04def949.chunk.js.map",
-    "runtime-main.js": "/Bistroad_Web/static/js/runtime-main.9a78545b.js",
-    "runtime-main.js.map": "/Bistroad_Web/static/js/runtime-main.9a78545b.js.map",
-    "static/js/2.88d51172.chunk.js": "/Bistroad_Web/static/js/2.88d51172.chunk.js",
-    "static/js/2.88d51172.chunk.js.map": "/Bistroad_Web/static/js/2.88d51172.chunk.js.map",
+    "main.js": "/Bistroad_Web/static/js/main.b44b4002.chunk.js",
+    "main.js.map": "/Bistroad_Web/static/js/main.b44b4002.chunk.js.map",
+    "runtime-main.js": "/Bistroad_Web/static/js/runtime-main.e39efc6e.js",
+    "runtime-main.js.map": "/Bistroad_Web/static/js/runtime-main.e39efc6e.js.map",
+    "static/js/2.eb4b1601.chunk.js": "/Bistroad_Web/static/js/2.eb4b1601.chunk.js",
+    "static/js/2.eb4b1601.chunk.js.map": "/Bistroad_Web/static/js/2.eb4b1601.chunk.js.map",
     "index.html": "/Bistroad_Web/index.html",
-    "precache-manifest.57bbc19c4fa7344f30405ddb7b096959.js": "/Bistroad_Web/precache-manifest.57bbc19c4fa7344f30405ddb7b096959.js",
+    "precache-manifest.f919775e318bf1f38c908e2400fe2da3.js": "/Bistroad_Web/precache-manifest.f919775e318bf1f38c908e2400fe2da3.js",
     "service-worker.js": "/Bistroad_Web/service-worker.js",
     "static/css/main.38450ddf.chunk.css.map": "/Bistroad_Web/static/css/main.38450ddf.chunk.css.map",
-    "static/js/2.88d51172.chunk.js.LICENSE.txt": "/Bistroad_Web/static/js/2.88d51172.chunk.js.LICENSE.txt"
+    "static/js/2.eb4b1601.chunk.js.LICENSE.txt": "/Bistroad_Web/static/js/2.eb4b1601.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9a78545b.js",
-    "static/js/2.88d51172.chunk.js",
+    "static/js/runtime-main.e39efc6e.js",
+    "static/js/2.eb4b1601.chunk.js",
     "static/css/main.38450ddf.chunk.css",
-    "static/js/main.04def949.chunk.js"
+    "static/js/main.b44b4002.chunk.js"
   ]
 }
