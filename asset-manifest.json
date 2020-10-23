@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Bistroad_Web/static/css/main.9abf7b30.chunk.css",
-    "main.js": "/Bistroad_Web/static/js/main.7f088cff.chunk.js",
-    "main.js.map": "/Bistroad_Web/static/js/main.7f088cff.chunk.js.map",
+    "main.js": "/Bistroad_Web/static/js/main.f7454ce4.chunk.js",
+    "main.js.map": "/Bistroad_Web/static/js/main.f7454ce4.chunk.js.map",
     "runtime-main.js": "/Bistroad_Web/static/js/runtime-main.e39efc6e.js",
     "runtime-main.js.map": "/Bistroad_Web/static/js/runtime-main.e39efc6e.js.map",
     "static/js/2.35693c71.chunk.js": "/Bistroad_Web/static/js/2.35693c71.chunk.js",
     "static/js/2.35693c71.chunk.js.map": "/Bistroad_Web/static/js/2.35693c71.chunk.js.map",
     "index.html": "/Bistroad_Web/index.html",
-    "precache-manifest.34f1af93948dd2af4d0d7c0ca34c12ad.js": "/Bistroad_Web/precache-manifest.34f1af93948dd2af4d0d7c0ca34c12ad.js",
+    "precache-manifest.81c168632da7f77b9fd5a8a3ddb27679.js": "/Bistroad_Web/precache-manifest.81c168632da7f77b9fd5a8a3ddb27679.js",
     "service-worker.js": "/Bistroad_Web/service-worker.js",
     "static/css/main.9abf7b30.chunk.css.map": "/Bistroad_Web/static/css/main.9abf7b30.chunk.css.map",
     "static/js/2.35693c71.chunk.js.LICENSE.txt": "/Bistroad_Web/static/js/2.35693c71.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e39efc6e.js",
     "static/js/2.35693c71.chunk.js",
     "static/css/main.9abf7b30.chunk.css",
-    "static/js/main.7f088cff.chunk.js"
+    "static/js/main.f7454ce4.chunk.js"
   ]
 }
