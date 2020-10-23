@@ -79,17 +79,16 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 	if (!photo) {
 		photo = {
 			thumbnailUrl:
-				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU',
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true',
 			sourceUrl:
-				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU'
-		};
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'		};
 	}
 	return (
 		<Card className={classes.root} onClick={() => review(storeId, id)}>
 			<CardHeader classes={{ title: classes.name }} title={name} subheader={price} />
 			<CardMedia className={classes.media} image={photo.thumbnailUrl} title={name} />
 			<CardContent>
-				<Typography variant="body2" color="textSecondary" component="p">
+				<Typography variant="body2" color="textSecondary" component="div">
 					<LinesEllipsis text={description} maxLine="1" ellipsis="..." trimRight basedOn="letters" />
 				</Typography>
 				<div>

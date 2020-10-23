@@ -9,6 +9,31 @@ class Review extends Component {
 	componentDidMount() {
 		this._getReviewList();
 		this._getStoreInfo();
+		this._getItem();
+	}
+
+	_renderItem = () => {
+		const info = this.state.itemInfo;
+		console.log(info);
+		return (
+			<div>
+				<div>{info.name}</div>
+				<div>{info.description}</div>
+			</div>)
+	}
+
+	_getItem = async () => {
+		 // https://api.bistroad.kr/v1/stores/f23b8952-172d-4454-b332-4bd37b6c80de/items/7082132a-f0e6-4e66-8c1d-7c03f3d8c881
+		 const itemInfo = await this._callItemApi(); // _callApi 함수가 끝날 때까지 기다림
+		 this.setState({
+			itemInfo
+		 });
+	}
+
+	_callItemApi() {
+		const { params } = this.props.match;
+
+		return Api.get('/stores/' + params.storeId + '/items/' + params.itemId).then((resp) => resp.data).catch((err) => console.log(err));
 	}
 
 	_renderReview = () => {
@@ -73,13 +98,12 @@ class Review extends Component {
 	};
 
 	render() {
-		const { reviews, storeInfo } = this.state;
-
+		const { reviews, storeInfo, itemInfo } = this.state;
 		return (
 			<div style={{ minHeight: '600px', margin: '0 20px' }}>
 				<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
 
-				<div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>리뷰</div>
+				<div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{itemInfo ? this._renderItem() : 'Loading Item'}</div>
 				<div>
 					{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
 					reviews ? this._renderReview() : 'Loading'}

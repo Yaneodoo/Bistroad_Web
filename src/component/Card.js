@@ -54,10 +54,9 @@ export default function RecipeReviewCard({ info }) {
 	if (!info.photo) {
 		info.photo = {
 			thumbnailUrl:
-				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU',
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true',
 			sourceUrl:
-				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU'
-		};
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'		};
 	}
 
 	return (
@@ -70,7 +69,7 @@ export default function RecipeReviewCard({ info }) {
 			<CardHeader classes={{ title: classes.name }} title={info.name} subheader={info.phone} />
 			<CardMedia className={classes.media} image={info.photo.thumbnailUrl} title={info.name} />
 			<CardContent>
-				<Typography variant="body2" color="textSecondary" component="p">
+				<Typography variant="body2" color="textSecondary" component="div">
 					{info.description}
 				</Typography>
 			</CardContent>

@@ -11,9 +11,10 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { yellow } from '@material-ui/core/colors';
+import StarIcon from '@material-ui/icons/Star';
 
-function ReviewList({ writer, orderId, contents, stars, photoUri, photo, item }) {
+function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 	const history = useHistory();
 
 	const [ user, setUser ] = useState(null);
@@ -27,11 +28,10 @@ function ReviewList({ writer, orderId, contents, stars, photoUri, photo, item })
 	const useStyles = makeStyles((theme) => ({
 		root: {
 		  display: 'flex',
-		  width: 250
+		  width: '80%'
 		},
 		details: {
-		  display: 'flex',
-		  flexDirection: 'column',
+		  display: 'inline',
 		},
 		name: {
 			fontSize: '1rem'
@@ -41,6 +41,7 @@ function ReviewList({ writer, orderId, contents, stars, photoUri, photo, item })
 		},
 		cover: {
 		  width: 151,
+		  cursor: 'pointer',
 		},
 		controls: {
 		  display: 'flex',
@@ -60,27 +61,30 @@ function ReviewList({ writer, orderId, contents, stars, photoUri, photo, item })
 	if (!photo) {
 		photo = {
 			thumbnailUrl:
-				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU',
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true',
 			sourceUrl:
-				'https://lh3.googleusercontent.com/proxy/Qb_s8zih0WTwmIOxPXdNErE5dA0r5rZ8ILFCWTOf0eSQQL4rNZZJsnsT6wJdiZ1o8Kf2lMO6O5KSTNiLxcp-Gwz9M5iY8_XNNf3x5KU'
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'
 		};
 	}
 	return (
 		<Card className={classes.root}>
-					<CardMedia
-		  className={classes.cover}
-		  image={photo.thumbnailUrl}
-		  title={item.name}
-		/>
-		  <CardContent className={classes.content}>
-			<Typography component="div" variant="h6">
-				{writer.username}
-			</Typography>
-			<Typography variant="subtitle2" color="textSecondary">
-			  {contents}
-			</Typography>
-		  </CardContent>
-
+			<CardMedia
+				className={classes.cover}
+				image={photo.thumbnailUrl}
+				title={item.name}
+			/>
+			<CardContent className={classes.content}>
+				<div style={{textAlign: "right"}}>
+					<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
+					<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
+				</div>
+				<Typography component="div" className={classes.name}>
+					{writer.username}
+				</Typography>
+				<Typography variant="subtitle2" color="textSecondary">
+				{contents}
+				</Typography>
+			</CardContent>
 	  </Card>
 		// <div className="menu">
 		// 	<div className="menu_column">
@@ -102,11 +106,11 @@ function ReviewList({ writer, orderId, contents, stars, photoUri, photo, item })
 	);
 }
 
-function ReviewImage({ photoUri }) {
+function ReviewImage({photo}) {
 	// return <img src={photoUri} alt="음식 이미지" className="foodImage" />;
 	return (
 		<img
-			src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fldb.phinf.naver.net%2F20200416_191%2F1587005465013afNYI_JPEG%2F%25BE%25F7%25C3%25BC%25C0%25DA%25C3%25BC_20200416_327581_%25B7%25B9%25B5%25E5175-%25B4%25EB%25C4%25A1%25BF%25AA%25C1%25A1_175%25B6%25B1%25BA%25BA%25C0%25CC_1080x640.jpg"
+			src={photo}
 			alt="음식 이미지"
 			className="menuImage"
 			style={{ maxWidth: '100%' }}
