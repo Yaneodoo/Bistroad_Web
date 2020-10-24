@@ -16,8 +16,8 @@ class Review extends Component {
 		const info = this.state.itemInfo;
 		console.log(info);
 		return (
-			<div>
-				<div>{info.name}</div>
+			<div style={{fontFamily: 'NanumGothic sans-serif'}}>
+				<div>{info.name} 후기</div>
 				<div>{info.description}</div>
 			</div>)
 	}
@@ -100,8 +100,9 @@ class Review extends Component {
 	render() {
 		const { reviews, storeInfo, itemInfo } = this.state;
 		return (
-			<div style={{ minHeight: '600px', margin: '0 20px' }}>
+			<div style={{ minHeight: '800px', margin: '0 20px' }}>
 				<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
+				<hr width="100%" margin="0 1rem" />
 
 				<div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{itemInfo ? this._renderItem() : 'Loading Item'}</div>
 				<div>

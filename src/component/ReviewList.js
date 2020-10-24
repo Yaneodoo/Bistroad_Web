@@ -27,8 +27,13 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 
 	const useStyles = makeStyles((theme) => ({
 		root: {
-		  display: 'flex',
-		  width: '80%'
+			maxWidth: '300px',
+			minHeight: '200px',
+			marginBottom: '2rem',
+			marginRight: '20px',
+			display: 'inline-block',
+			margin: '5px',
+			width: '40%',
 		},
 		details: {
 		  display: 'inline',
@@ -40,18 +45,15 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 		  flex: '1 0 auto',
 		},
 		cover: {
-		  width: 151,
-		  cursor: 'pointer',
+			height: 0,	
+			paddingTop: '75%', // 4:3
+			cursor: 'pointer',
 		},
 		controls: {
 		  display: 'flex',
 		  alignItems: 'center',
 		  paddingLeft: theme.spacing(1),
 		  paddingBottom: theme.spacing(1),
-		},
-		playIcon: {
-		  height: 38,
-		  width: 38,
 		},
 	  }));
 

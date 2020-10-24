@@ -8,9 +8,6 @@ export async function signIn({ username, password }) {
 	if (resp.data.length === 0) {
 		alert('입력하신 id가 존재하지 않습니다!');
 	} else {
-		console.log('password: ' + password);
-		console.log('username: ' + username);
-
 		try {
 			const token = await Api.post('/auth/token', {
 				password,

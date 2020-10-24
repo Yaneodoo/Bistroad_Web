@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
 		maxWidth: '300px',
 		minHeight: '200px',
 		marginBottom: '2rem',
-		marginRight: '20px',
+		marginRight: '10px',
+		marginLeft: '10px',
 		display: 'inline-block',
 		margin: '5px',
 		width: '40%',
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	media: {
 		height: 0,
-		paddingTop: '56.25%' // 16:9
+		paddingTop: '75%' // 16:9 -> 4:3
 	},
 	expand: {
 		transform: 'rotate(0deg)',

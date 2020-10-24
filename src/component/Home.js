@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import Api from '../Api';
-import { MenuList } from './StoreList';
 import Card from './Card';
 
 import classNames from 'classnames/bind';
 import styles from './Home.scss';
 import InHeader from './InHeader';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 const cx = classNames.bind(styles);
@@ -20,7 +18,7 @@ class Home extends Component {
 
 	callApi = (position) => {
 		console.log(position)
-		return Api.get('/stores/nearby?originLat=37.6199425&originLng=127.0608163&radius=1000')
+		return Api.get('/stores/nearby?originLat='+position.latitude+'&originLng='+position.longitude+'&radius=1000')
 			.then((resp)=>resp.data)
 			.catch((err) => console.log(err));
 	}
@@ -28,8 +26,6 @@ class Home extends Component {
 	getNearStores = async(position) => {
 		console.log("Latitude is :", position.coords.latitude);
 		console.log("Longitude is :", position.coords.longitude);
-		// this.setState({location: position})
-		// const {stores} = await Api.get('/stores/nearby?originLat='+position.coords.latitude+'&originLng='+position.coords.longitude+'&radius=1');
 		const stores = await this.callApi(position.coords);
 		console.log('stores '+stores);
 		this.setState({
@@ -67,7 +63,7 @@ class Home extends Component {
 						Bistroad는<br />작은 가게라는 뜻의 'Bistro'와<br />길이라는 뜻의'Road'의 합성어입니다.
 					</div>
 					<div>
-						<div style={{marginBottom: '20px'}}>가까운 매장</div>
+						<div style={{marginBottom: '20px'}}>현재 가까운 매장</div>
 						<div>
 							{stores ? this.renderStores() : 'Loading'}
 						</div>
