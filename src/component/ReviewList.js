@@ -76,6 +76,9 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			paddingTop: '75%', // 4:3
 			cursor: 'pointer',
 		},
+		source: {
+			width: '100%',
+		},
 		controls: {
 		  display: 'flex',
 		  alignItems: 'center',
@@ -119,18 +122,16 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			</Card>
 
 			<Dialog
-			fullWidth={fullWidth}
-			maxWidth={maxWidth}
-			open={open}
-			onClose={handleClose}
-			aria-labelledby="max-width-dialog-title"
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="max-width-dialog-title"
 			>
-			<CardMedia
+			<img src={photo.sourceUrl} className={classes.source}/>
+			{/* <CardMedia
 				className={classes.cover}
 				image={photo.sourceUrl}
 				title={item.name}
-				onClick={handleClickOpen}
-			/>
+			/> */}
 			<DialogActions>
 			<Button onClick={handleClose} color="primary">
 				Close
@@ -138,23 +139,6 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			</DialogActions>
 			</Dialog>
 		</div>
-		// <div className="menu">
-		// 	<div className="menu_column">
-		// 		<ReviewImage image={photoUri} />
-		// 	</div>
-
-		// 	<div style={{ padding: '0px 20px' }}>
-		// 		<h1>
-		// 			{/* {// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
-		// 			user === null ? renderUser() : user} */}
-		// 			{writer.username}
-		// 		</h1>
-		// 		<div className="menu_description">
-		// 			<LinesEllipsis text={contents} maxLine="3" ellipsis="..." trimRight basedOn="letters" />
-		// 		</div>
-		// 		<div className="menu_star">평점: {stars}</div>
-		// 	</div>
-		// </div>
 	);
 }
 

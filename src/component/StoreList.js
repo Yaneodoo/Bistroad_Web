@@ -14,7 +14,7 @@ import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: '25%',
+		// maxWidth: '25%',
 		minHeight: '200px',
 		margin: '1rem 0.5rem',
 		display: 'inline-block',
