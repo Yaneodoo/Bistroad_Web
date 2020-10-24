@@ -45,10 +45,9 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard({ info }) {
 	const history = useHistory();
 	const classes = useStyles();
-	const [ expanded ] = React.useState(false);
 	const storeId = info.id;
 	const store = () => {
-		let path = '/store/' + storeId + '/' + info.ownerId;
+		let path = '/store/' + storeId;
 		history.push(path);
 	};
 

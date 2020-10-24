@@ -25,10 +25,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 	const history = useHistory();
 	const [open, setOpen] = React.useState(false);
-	const [fullWidth, setFullWidth] = React.useState(true);
-	const [maxWidth, setMaxWidth] = React.useState('sm');
-
-	const [ user, setUser ] = useState(null);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -36,14 +32,6 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 
 	const handleClose = () => {
 		setOpen(false);
-	};
-
-	const handleMaxWidthChange = (event) => {
-		setMaxWidth(event.target.value);
-	};
-
-	const handleFullWidthChange = (event) => {
-		setFullWidth(event.target.checked);
 	};
 
 	const review = (id) => {
@@ -88,7 +76,6 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 	}));
 
 	const classes = useStyles();
-	const theme = useTheme();
 
 	if (!photo) {
 		photo = {

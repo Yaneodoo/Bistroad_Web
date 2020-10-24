@@ -99,9 +99,16 @@ class Review extends Component {
 
 	render() {
 		const { reviews, storeInfo, itemInfo } = this.state;
+		const { params } = this.props.match;
+		const {history} = this.props;
+
+		const store = () => {
+			let path = '/store/' + params.storeId;
+			history.push(path);
+		};
 		return (
 			<div style={{ minHeight: '800px', margin: '0 20px' }}>
-				<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
+				<div onClick={() =>{ store();}} style={{cursor:'pointer'}}>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
 				<hr width="100%" margin="0 1rem" />
 				<div style={{margin: '0.5rem 1rem'}}>
 					<div style={{ marginBottom: '5px' }}>{itemInfo ? this._renderItem() : 'Loading Item'}</div>
