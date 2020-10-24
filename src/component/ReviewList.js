@@ -54,22 +54,22 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 
 	const useStyles = makeStyles((theme) => ({
 		root: {
+			width: '90%',
 			maxWidth: '300px',
 			minHeight: '200px',
 			marginBottom: '2rem',
 			marginRight: '20px',
 			display: 'inline-block',
 			margin: '5px',
-			width: '40%',
 		},
 		details: {
-		  display: 'inline',
+			display: 'inline',
 		},
 		name: {
 			fontSize: '1rem'
 		},
 		content: {
-		  flex: '1 0 auto',
+			flex: '1 0 auto',
 		},
 		cover: {
 			height: 0,	
@@ -80,12 +80,12 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			width: '100%',
 		},
 		controls: {
-		  display: 'flex',
-		  alignItems: 'center',
-		  paddingLeft: theme.spacing(1),
-		  paddingBottom: theme.spacing(1),
+		display: 'flex',
+		alignItems: 'center',
+		paddingLeft: theme.spacing(1),
+		paddingBottom: theme.spacing(1),
 		},
-	  }));
+	}));
 
 	const classes = useStyles();
 	const theme = useTheme();
@@ -108,7 +108,7 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 					onClick={handleClickOpen}
 				/>
 				<CardContent className={classes.content}>
-					<div style={{textAlign: "right"}}>
+					<div style={{display: 'inline-block', float: 'right'}}>
 						<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
 						<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
 					</div>
@@ -139,10 +139,10 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			</DialogActions>
 			</Dialog>
 		</div>
-	);
-}
+		);
+	}
 
-function ReviewImage({photo}) {
+	function ReviewImage({photo}) {
 	// return <img src={photoUri} alt="음식 이미지" className="foodImage" />;
 	return (
 		<img
@@ -154,8 +154,9 @@ function ReviewImage({photo}) {
 	);
 }
 
+
 ReviewList.propTypes = {
-	writerId: PropTypes.string.isRequired,
+	writer: PropTypes.object.isRequired,
 	orderId: PropTypes.string.isRequired,
 	contents: PropTypes.string.isRequired,
 	photo: PropTypes.object.isRequired,

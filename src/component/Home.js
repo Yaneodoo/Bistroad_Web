@@ -36,9 +36,14 @@ class Home extends Component {
 	renderStores = () => {
 		const stores = this.state.stores.map((store, index) => {
 			console.log(store);
-			return (
-				<Card info={store} key={index}	/> //key prop으로 index 작성
-			);
+			if(store) {
+				return (
+					<Card info={store} key={index}	/> //key prop으로 index 작성
+				);
+			}
+			else {
+				return <div>가까운 매장이 없습니다.</div>;
+			}
 		});
 		return stores;
 	}

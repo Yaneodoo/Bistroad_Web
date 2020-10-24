@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
 		cursor: 'pointer'
 	},
 	name: {
-		fontSize: '1rem'
+		fontSize: '1rem',
+		fontWeight: '800'
 	},
 	media: {
 		height: 0,
@@ -85,7 +86,7 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 		<Card className={classes.root} onClick={() => review(storeId, id)}>
 			{/* <CardHeader classes={{ title: classes.name }} title={name} subheader={price} /> */}
 			<CardContent classes={{ title: classes.name }}>
-				<LinesEllipsis text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" />
+				<LinesEllipsis text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" className={classes.name}/>
 				<div>{price}</div>
 			</CardContent>
 			<CardMedia className={classes.media} image={photo.thumbnailUrl} title={name} />

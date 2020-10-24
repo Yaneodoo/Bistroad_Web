@@ -16,9 +16,9 @@ class Review extends Component {
 		const info = this.state.itemInfo;
 		console.log(info);
 		return (
-			<div style={{fontFamily: 'NanumGothic sans-serif'}}>
-				<div>{info.name} 후기</div>
-				<div>{info.description}</div>
+			<div style={{display: 'inline-block', fontFamily: '맑은 고딕 sans-serif', lineHeight: '1.6'}}>
+				<div style={{fontSize: '1.5rem', fontWeight: 'bold', color: '#33261D'}}>{info.name}</div>
+				<div style={{fontsize: '0.6rem', color: '#33261D'}}>{info.description}</div>
 			</div>)
 	}
 
@@ -103,12 +103,14 @@ class Review extends Component {
 			<div style={{ minHeight: '800px', margin: '0 20px' }}>
 				<div>{storeInfo ? this._renderStore() : 'Loading Store'}</div>
 				<hr width="100%" margin="0 1rem" />
-
-				<div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{itemInfo ? this._renderItem() : 'Loading Item'}</div>
-				<div>
-					{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
-					reviews ? this._renderReview() : 'Loading'}
+				<div style={{margin: '0.5rem 1rem'}}>
+					<div style={{ marginBottom: '5px' }}>{itemInfo ? this._renderItem() : 'Loading Item'}</div>
+					<div>
+						{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
+						reviews ? this._renderReview() : 'Loading'}
+					</div>
 				</div>
+
 			</div>
 		);
 	}
