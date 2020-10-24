@@ -162,7 +162,7 @@ class Store extends Component {
 				}}
 			>
 				<InHeader />
-				<div style={{ minHeight: '900px', maxWidth: '1000px', margin: '0px 25px' }}>
+				<div style={{ minHeight: '900px', maxWidth: '1000px', minWidth: '80%', margin: '0px 25px' }}>
 					<Paper style={{ margin: '5px 5px' }}>
 						<Grid container spacing={2}>
 							<Grid item xs={15} sm container>

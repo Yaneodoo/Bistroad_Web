@@ -14,12 +14,10 @@ import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: '300px',
+		maxWidth: '25%',
 		minHeight: '200px',
-		marginBottom: '2rem',
-		marginRight: '20px',
+		margin: '1rem 0.5rem',
 		display: 'inline-block',
-		margin: '5px',
 		width: '40%',
 		cursor: 'pointer'
 	},
@@ -85,7 +83,11 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 	}
 	return (
 		<Card className={classes.root} onClick={() => review(storeId, id)}>
-			<CardHeader classes={{ title: classes.name }} title={name} subheader={price} />
+			{/* <CardHeader classes={{ title: classes.name }} title={name} subheader={price} /> */}
+			<CardContent classes={{ title: classes.name }}>
+				<LinesEllipsis text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" />
+				<div>{price}</div>
+			</CardContent>
 			<CardMedia className={classes.media} image={photo.thumbnailUrl} title={name} />
 			<CardContent>
 				<Typography variant="body2" color="textSecondary" component="div">

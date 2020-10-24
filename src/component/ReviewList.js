@@ -14,10 +14,37 @@ import Typography from '@material-ui/core/Typography';
 import { yellow } from '@material-ui/core/colors';
 import StarIcon from '@material-ui/icons/Star';
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 	const history = useHistory();
+	const [open, setOpen] = React.useState(false);
+	const [fullWidth, setFullWidth] = React.useState(true);
+	const [maxWidth, setMaxWidth] = React.useState('sm');
 
 	const [ user, setUser ] = useState(null);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
+	const handleMaxWidthChange = (event) => {
+		setMaxWidth(event.target.value);
+	};
+
+	const handleFullWidthChange = (event) => {
+		setFullWidth(event.target.checked);
+	};
 
 	const review = (id) => {
 		console.log(id);
@@ -69,25 +96,48 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 		};
 	}
 	return (
-		<Card className={classes.root}>
+		<div>
+			<Card className={classes.root}>
+				<CardMedia
+					className={classes.cover}
+					image={photo.thumbnailUrl}
+					title={item.name}
+					onClick={handleClickOpen}
+				/>
+				<CardContent className={classes.content}>
+					<div style={{textAlign: "right"}}>
+						<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
+						<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
+					</div>
+					<Typography component="div" className={classes.name}>
+						{writer.username}
+					</Typography>
+					<Typography variant="subtitle2" color="textSecondary">
+					{contents}
+					</Typography>
+				</CardContent>
+			</Card>
+
+			<Dialog
+			fullWidth={fullWidth}
+			maxWidth={maxWidth}
+			open={open}
+			onClose={handleClose}
+			aria-labelledby="max-width-dialog-title"
+			>
 			<CardMedia
 				className={classes.cover}
-				image={photo.thumbnailUrl}
+				image={photo.sourceUrl}
 				title={item.name}
+				onClick={handleClickOpen}
 			/>
-			<CardContent className={classes.content}>
-				<div style={{textAlign: "right"}}>
-					<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
-					<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
-				</div>
-				<Typography component="div" className={classes.name}>
-					{writer.username}
-				</Typography>
-				<Typography variant="subtitle2" color="textSecondary">
-				{contents}
-				</Typography>
-			</CardContent>
-	  </Card>
+			<DialogActions>
+			<Button onClick={handleClose} color="primary">
+				Close
+			</Button>
+			</DialogActions>
+			</Dialog>
+		</div>
 		// <div className="menu">
 		// 	<div className="menu_column">
 		// 		<ReviewImage image={photoUri} />
