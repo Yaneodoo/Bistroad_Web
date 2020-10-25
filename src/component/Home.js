@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Api from '../Api';
-import Card from './Card';
+import {RecipeReviewCard} from './Card';
 
 import classNames from 'classnames/bind';
 import styles from './Home.scss';
@@ -38,7 +38,7 @@ class Home extends Component {
 			console.log(store);
 			if(store) {
 				return (
-					<Card info={store} key={index}	/> //key prop으로 index 작성
+					<RecipeReviewCard info={store} key={index}	/> //key prop으로 index 작성
 				);
 			}
 			else {

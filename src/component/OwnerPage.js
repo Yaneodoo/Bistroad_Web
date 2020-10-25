@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import QRCode from 'qrcode';
 import StoreList from './StoreList';
-import Card from './Card';
+import {ProfileStoreCard} from './Card';
 
 class Owner extends Component {
 	state = {};
@@ -37,7 +37,7 @@ class Owner extends Component {
 		const { store } = this.props;
 		console.log(store);
 
-		const stores = store.map((info) => <Card info={info} key={info.id} />);
+		const stores = store.map((info) => <ProfileStoreCard info={info} key={info.id} />);
 		return <div>{stores}</div>;
 	}
 }

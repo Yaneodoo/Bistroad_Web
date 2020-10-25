@@ -125,14 +125,14 @@ class Store extends Component {
 	generateQR = () => {
 		const { params } = this.props.match;
 
-		if (params.ownerId) {
+		if (params.ownerId) { // params 인자로 ownerId가 있을 경우 qr코드
 			let str = 'https://yaneodoo.github.io/Bistroad_Web/store/' + params.storeId; // qr url 변경 필요
 			console.log(str);
 			QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {
 				if (error) console.error(error);
 				else console.log('success!');
 			});
-		} else {
+		} else { // 없을 경우 매장 썸네일 출력
 			const ctx = document.getElementById('canvas').getContext('2d');
 			var imgClo = new Image();
 			Api.get('/stores/' + params.storeId)

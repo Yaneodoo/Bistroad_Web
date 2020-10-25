@@ -42,11 +42,46 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function RecipeReviewCard({ info }) {
+export function ProfileStoreCard({ info }) {
 	const history = useHistory();
 	const classes = useStyles();
 	const storeId = info.id;
 	const store = () => {
+		let path = '/store/' + storeId + '/' + info.ownerId;
+		history.push(path);
+	};
+
+	if (!info.photo) {
+		info.photo = {
+			thumbnailUrl:
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true',
+			sourceUrl:
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'		};
+	}
+
+	return (
+		<Card
+			className={classes.root}
+			onClick={() => {
+				store();
+			}}
+		>
+			<CardHeader classes={{ title: classes.name }} title={info.name} subheader={info.phone} />
+			<CardMedia className={classes.media} image={info.photo.thumbnailUrl} title={info.name} />
+			<CardContent>
+				<Typography variant="body2" color="textSecondary" component="div">
+					{info.description}
+				</Typography>
+			</CardContent>
+		</Card>
+	);
+}
+
+export function RecipeReviewCard({ info }) {
+	const history = useHistory();
+	const classes = useStyles();
+	const storeId = info.id;
+	const store = () => { // home에서 누를 경우 storeId만 params로 넣어 push
 		let path = '/store/' + storeId;
 		history.push(path);
 	};

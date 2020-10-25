@@ -87,7 +87,7 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 			{/* <CardHeader classes={{ title: classes.name }} title={name} subheader={price} /> */}
 			<CardContent classes={{ title: classes.name }}>
 				<LinesEllipsis text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" className={classes.name}/>
-				<div>{price}</div>
+				<div>{price}원</div>
 			</CardContent>
 			<CardMedia className={classes.media} image={photo.thumbnailUrl} title={name} />
 			<CardContent>
