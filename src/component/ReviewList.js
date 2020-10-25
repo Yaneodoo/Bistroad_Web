@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles/Store.css';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { Link, useHistory } from 'react-router-dom';
-import Api from '../Api';
+import Moment from 'react-moment';
 
 import { makeStyles,useTheme  } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -22,7 +22,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-function ReviewList({ writer, orderId, contents, stars, photo, item }) {
+function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 	const history = useHistory();
 	const [open, setOpen] = React.useState(false);
 
@@ -51,10 +51,19 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			margin: '5px',
 		},
 		details: {
-			display: 'inline',
+			display: 'inline-block',
 		},
 		name: {
-			fontSize: '1rem'
+			width: '55%',
+			fontSize: '1rem',
+			display: 'inline-block',
+			float: 'left',
+		},
+		info: {
+			display: 'inline-block',
+			width: '40%',
+			float: 'left',
+			fontSize: '0.8rem',
 		},
 		content: {
 			flex: '1 0 auto',
@@ -68,10 +77,10 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 			width: '100%',
 		},
 		controls: {
-		display: 'flex',
-		alignItems: 'center',
-		paddingLeft: theme.spacing(1),
-		paddingBottom: theme.spacing(1),
+			display: 'flex',
+			alignItems: 'center',
+			paddingLeft: theme.spacing(1),
+			paddingBottom: theme.spacing(1),
 		},
 	}));
 
@@ -85,25 +94,34 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'
 		};
 	}
+	const dateToFormat = new Date(timestamp);
+	// const time = moment({timestamp}, 'YYYY-MM-DD');
+
 	return (
 		<div>
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.cover}
 					image={photo.thumbnailUrl}
-					title={item.name}
+					// title={item.name}
 					onClick={handleClickOpen}
 				/>
 				<CardContent className={classes.content}>
-					<div style={{display: 'inline-block', float: 'right'}}>
-						<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
-						<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
+					<div style={{display: 'flex'}}>
+						<Typography component="div" className={classes.name}>
+							{writer.username}
+						</Typography>
+						<Moment format="YYYY/MM/DD" className={classes.info}>
+                			{dateToFormat}
+           	 			</Moment>
+						<div style={{ width: '15%', float: 'right', textAlign: 'right'}}>
+							<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
+							<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
+						</div>
 					</div>
-					<Typography component="div" className={classes.name}>
-						{writer.username}
-					</Typography>
-					<Typography variant="subtitle2" color="textSecondary">
-					{contents}
+					
+					<Typography variant="subtitle2" color="textSecondary" className={classes.details}>
+						{contents}
 					</Typography>
 				</CardContent>
 			</Card>
@@ -144,7 +162,7 @@ function ReviewList({ writer, orderId, contents, stars, photo, item }) {
 
 ReviewList.propTypes = {
 	writer: PropTypes.object.isRequired,
-	orderId: PropTypes.string.isRequired,
+	timestamp: PropTypes.string.isRequired,
 	contents: PropTypes.string.isRequired,
 	photo: PropTypes.object.isRequired,
 	stars: PropTypes.number.isRequired,

@@ -41,7 +41,7 @@ class Review extends Component {
 			console.log(review);
 			return (
 				<ReviewList
-					orderId={review.orderId}
+					timestamp={review.timestamp}
 					writer={review.writer}
 					contents={review.contents}
 					stars={review.stars}
