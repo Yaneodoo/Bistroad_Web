@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Bistroad_Web/static/css/main.6b90d705.chunk.css",
-    "main.js": "/Bistroad_Web/static/js/main.51b32f97.chunk.js",
-    "main.js.map": "/Bistroad_Web/static/js/main.51b32f97.chunk.js.map",
+    "main.js": "/Bistroad_Web/static/js/main.ff87d72f.chunk.js",
+    "main.js.map": "/Bistroad_Web/static/js/main.ff87d72f.chunk.js.map",
     "runtime-main.js": "/Bistroad_Web/static/js/runtime-main.e39efc6e.js",
     "runtime-main.js.map": "/Bistroad_Web/static/js/runtime-main.e39efc6e.js.map",
-    "static/js/2.333c90ce.chunk.js": "/Bistroad_Web/static/js/2.333c90ce.chunk.js",
-    "static/js/2.333c90ce.chunk.js.map": "/Bistroad_Web/static/js/2.333c90ce.chunk.js.map",
+    "static/js/2.25bd9414.chunk.js": "/Bistroad_Web/static/js/2.25bd9414.chunk.js",
+    "static/js/2.25bd9414.chunk.js.map": "/Bistroad_Web/static/js/2.25bd9414.chunk.js.map",
     "index.html": "/Bistroad_Web/index.html",
-    "precache-manifest.f25821105db229615d5cf878c543b29a.js": "/Bistroad_Web/precache-manifest.f25821105db229615d5cf878c543b29a.js",
+    "precache-manifest.6ceb2225e0297f0896f7af4166ae805f.js": "/Bistroad_Web/precache-manifest.6ceb2225e0297f0896f7af4166ae805f.js",
     "service-worker.js": "/Bistroad_Web/service-worker.js",
     "static/css/main.6b90d705.chunk.css.map": "/Bistroad_Web/static/css/main.6b90d705.chunk.css.map",
-    "static/js/2.333c90ce.chunk.js.LICENSE.txt": "/Bistroad_Web/static/js/2.333c90ce.chunk.js.LICENSE.txt"
+    "static/js/2.25bd9414.chunk.js.LICENSE.txt": "/Bistroad_Web/static/js/2.25bd9414.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e39efc6e.js",
-    "static/js/2.333c90ce.chunk.js",
+    "static/js/2.25bd9414.chunk.js",
     "static/css/main.6b90d705.chunk.css",
-    "static/js/main.51b32f97.chunk.js"
+    "static/js/main.ff87d72f.chunk.js"
   ]
 }
