@@ -63,7 +63,7 @@ class Home extends Component {
 		return (
 			<div>
 				<InHeader />
-				<Typography component="div" align="center" style={{ minHeight: '600px' }}>
+				<Typography component="div" align="center" style={{ minHeight: '650px' }}>
 					<div className={cx('home')}>
 						Bistroad는<br />작은 가게라는 뜻의 'Bistro'와<br />길이라는 뜻의'Road'의 합성어입니다.
 					</div>

@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Helmet } from 'react-helmet'
 
 ReactDOM.render(
 	<React.StrictMode>
+		<Helmet>
+          	<title>Bistroad</title>
+        </Helmet>
 		<App />
 	</React.StrictMode>,
 	document.getElementById('root')

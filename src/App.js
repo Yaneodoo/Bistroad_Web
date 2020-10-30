@@ -9,16 +9,28 @@ import Profile from './component/Profile';
 import LoginForm from './component/LoginForm';
 import LogoutButton from './component/LogoutButton';
 import SignUp from './component/SignUp';
-import Footer from './component/Footer';
 import Store from './component/Store';
 import Review from './component/Review';
-import StoreList from './component/StoreList';
 
 import classNames from 'classnames/bind';
 import styles from './component/Header.scss';
-import { ClickAwayListener } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
 
 const cx = classNames.bind(styles);
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  display: 'flex',
+	  '& > *': {
+		margin: theme.spacing(1),
+	  },
+	},
+	small: {
+	  width: theme.spacing(4),
+	  height: theme.spacing(4),
+	},
+  }));
 
 function App() {
 	const [ user, setUser ] = useState(null);
@@ -32,6 +44,7 @@ function App() {
 	}
 
 	const logout = () => setUser(null);
+	const classes = useStyles();
 
 	return (
 		<Router basename={process.env.PUBLIC_URL}>
@@ -53,7 +66,14 @@ function App() {
 
 					{authenticated ? (
 						<Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
-							<li className={cx('li')}>마이페이지</li>
+							<li className={cx('li')}>
+								{user.photo ? (
+									<Avatar alt={user.username} src={user.photo.thumbnailUrl} className={classes.small}/>
+								) : (
+									<Avatar src="/broken-image.jpg" className={classes.small}/>
+								)}
+							</li>
+							
 						</Link>
 					) : null}
 				</ul>
@@ -78,15 +98,15 @@ function App() {
 			</div>
 			<footer
 				style={{
-					height: '2px',
 					minHeight: '1%',
 					bottom: '0',
-					padding: '10px',
+					padding: '5px',
 					borderTop: '1px solid #d9d9d9',
 					fontSize: '12px',
 					backgroundColor: '#f1f1f1',
 					textAlign: 'center',
-					color: '#888'
+					color: '#888',
+					verticalAlign: 'center'
 				}}
 			>
 				©Yaneodoo

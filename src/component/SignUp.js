@@ -78,7 +78,7 @@ class SignUp extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<div style={{ minHeight: '700px', textAlign: 'center' }}>
+			<div style={{ minHeight: '750px', textAlign: 'center' }}>
 				<InHeader />
 				<h3 style={{ display: 'block', textAlign: 'center' }}>회원가입</h3>
 

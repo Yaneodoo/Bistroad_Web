@@ -35,7 +35,7 @@ class Profile extends Component {
 		const { fullName, username, id, role, phone } = this.props.user;
 		const { stores } = this.state;
 		return (
-			<div style={{ minHeight: '700px' }}>
+			<div style={{ minHeight: '750px' }}>
 				<InHeader />
 				<div style={{ paddingLeft: '24px', paddingRight: '24px' }}>
 					<h2 style={{ marginLeft: '2px' }}>마이페이지</h2>

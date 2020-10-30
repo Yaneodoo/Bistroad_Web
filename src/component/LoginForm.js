@@ -33,7 +33,7 @@ function LoginForm({ authenticated, login, location }) {
 	if (authenticated) return <Redirect to={from} />;
 
 	return (
-		<div style={{ minHeight: '700px' }}>
+		<div style={{ minHeight: '750px' }}>
 			<InHeader />
 			<div
 				style={{
