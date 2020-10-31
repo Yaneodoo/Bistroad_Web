@@ -2,12 +2,11 @@ import React, { useState, Component } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Store.css';
 import LinesEllipsis from 'react-lines-ellipsis';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Moment from 'react-moment';
 
-import { makeStyles,useTheme  } from '@material-ui/core/styles';
+import { makeStyles  } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -16,11 +15,7 @@ import StarIcon from '@material-ui/icons/Star';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 	const history = useHistory();
@@ -95,7 +90,6 @@ function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 		};
 	}
 	const dateToFormat = new Date(timestamp);
-	// const time = moment({timestamp}, 'YYYY-MM-DD');
 
 	return (
 		<div>
@@ -146,19 +140,6 @@ function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 		</div>
 		);
 	}
-
-	function ReviewImage({photo}) {
-	// return <img src={photoUri} alt="음식 이미지" className="foodImage" />;
-	return (
-		<img
-			src={photo}
-			alt="음식 이미지"
-			className="menuImage"
-			style={{ maxWidth: '100%' }}
-		/>
-	);
-}
-
 
 ReviewList.propTypes = {
 	writer: PropTypes.object.isRequired,

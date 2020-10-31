@@ -11,6 +11,12 @@
 	.li {
 		display: flex;
 		padding-right: 1rem;
+		margin-block-start: 0.5em;
+	}
+
+	.avatar {
+		margin-block-start: 0;
+		padding-right: 1rem;
 	}
 
 	.bar {
@@ -20,6 +26,7 @@
 	}
 
 	.ul {
+		margin-block-start: 0.5em;
 		text-align: right;
 		list-style: none;
 		margin-block-end: 0;

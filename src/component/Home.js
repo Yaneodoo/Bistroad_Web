@@ -27,7 +27,6 @@ class Home extends Component {
 		console.log("Latitude is :", position.coords.latitude);
 		console.log("Longitude is :", position.coords.longitude);
 		const stores = await this.callApi(position.coords);
-		console.log('stores '+stores);
 		this.setState({
 			stores
 		});

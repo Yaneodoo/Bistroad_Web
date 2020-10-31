@@ -66,7 +66,7 @@ function App() {
 
 					{authenticated ? (
 						<Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
-							<li className={cx('li')}>
+							<li className={cx('avatar')}>
 								{user.photo ? (
 									<Avatar alt={user.username} src={user.photo.thumbnailUrl} className={classes.small}/>
 								) : (
