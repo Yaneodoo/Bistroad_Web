@@ -118,7 +118,6 @@ class Review extends Component {
 						reviews ? this._renderReview() : 'Loading'}
 					</div>
 				</div>
-
 			</div>
 		);
 	}

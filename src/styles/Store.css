@@ -29,7 +29,6 @@
 
 .menu_column:last-child {
 	display: flex;
-
 	padding: 20px 0;
 	width: 40%;
 }
@@ -53,6 +52,7 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 	display: flex;
+	font-size: small;
 }
 
 @media screen and (min-width: 320px) and (max-width: 667px) {

@@ -20,7 +20,7 @@ class Store extends Component {
 	componentDidMount() {
 		this._getMenuList();
 		this._getStoreInfo();
-		this.generateQR();
+		this._generateQR();
 		window.scrollTo(0, 0)
 	}
 
@@ -122,7 +122,7 @@ class Store extends Component {
 		return image;
 	}
 
-	generateQR = () => {
+	_generateQR = () => {
 		const { params } = this.props.match;
 
 		if (params.ownerId) { // params 인자로 ownerId가 있을 경우 qr코드
@@ -187,9 +187,10 @@ class Store extends Component {
 					>
 						메뉴 리스트
 					</h2>
-					<div>
+					<div style={{margin: 'auto', alignContent: 'center', alignItems: 'center'}}>
 						{// 데이터가 없다면 'Loading'을 띄우고, 있으면 menu list가 보이도록 한다.
-						menu ? this._renderMenu() : 'Loading'}
+							menu ? this._renderMenu() : 'Loading'
+						}
 					</div>
 				</div>
 			</Typography>

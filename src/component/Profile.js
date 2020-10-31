@@ -41,7 +41,7 @@ class Profile extends Component {
 					<h2 style={{ marginLeft: '2px' }}>마이페이지</h2>
 					<div>
 						<div style={{ marginBottom: '20px', fontWeight: '400' }}>
-							{fullName} {role === 'ROLE_STORE_OWNER' ? '점주님' : '손님'}
+							{fullName}{role === 'ROLE_STORE_OWNER' ? ' 점주님' : '님의 주문내역'}
 						</div>
 						<div>
 							{role === 'ROLE_STORE_OWNER' ? stores ? (
@@ -49,7 +49,7 @@ class Profile extends Component {
 							) : (
 								'Loading Store List'
 							) : (
-								<Customer />
+								<Customer id={id} />
 							)}
 						</div>
 					</div>

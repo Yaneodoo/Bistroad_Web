@@ -18,24 +18,20 @@ const useStyles = makeStyles((theme) => ({
 		display: 'inline-block',
 		margin: '5px',
 		width: '40%',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		margin: 'auto',
+		textAlign: 'left',
+		textOverflow: 'ellipsis',
 	},
 	name: {
-		fontSize: '1rem'
+		fontSize: '1rem',
+	},
+	phone: {
+		fontSize: '0.8rem',
 	},
 	media: {
 		height: 0,
 		paddingTop: '75%' // 16:9 -> 4:3
-	},
-	expand: {
-		transform: 'rotate(0deg)',
-		marginLeft: 'auto',
-		transition: theme.transitions.create('transform', {
-			duration: theme.transitions.duration.shortest
-		})
-	},
-	expandOpen: {
-		transform: 'rotate(180deg)'
 	},
 	avatar: {
 		backgroundColor: red[500]
@@ -56,7 +52,8 @@ export function ProfileStoreCard({ info }) {
 			thumbnailUrl:
 				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true',
 			sourceUrl:
-				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'		};
+				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'
+		};
 	}
 
 	return (
@@ -66,7 +63,7 @@ export function ProfileStoreCard({ info }) {
 				store();
 			}}
 		>
-			<CardHeader classes={{ title: classes.name }} title={info.name} subheader={info.phone} />
+			<CardHeader classes={{ title: classes.name, subheader: classes.phone}} title={info.name} subheader={info.phone} />
 			<CardMedia className={classes.media} image={info.photo.thumbnailUrl} title={info.name} />
 			<CardContent>
 				<Typography variant="body2" color="textSecondary" component="div">

@@ -14,12 +14,12 @@ import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		// maxWidth: '25%',
+		maxWidth: '500px',
 		minHeight: '200px',
-		margin: '1rem 0.5rem',
+		margin: '1rem 0.7rem',
 		display: 'inline-block',
 		width: '40%',
-		cursor: 'pointer'
+		cursor: 'pointer',
 	},
 	name: {
 		fontSize: '1rem',
@@ -54,8 +54,8 @@ export function StoreList({ info }) {
 			<div className="menu_column">
 				<h1>{info.name}</h1>
 				<div className="menu_description">
-					{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
-					{info.description}
+					<LinesEllipsis text={info.description} maxLine="3" ellipsis="..." trimRight basedOn="letters" />
+					{/* {info.description} */}
 				</div>
 				<div className="menu_price">{info.phone}</div>
 				<div className="menu_star">
@@ -83,7 +83,7 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'		};
 	}
 	return (
-		<Card  title={name} className={classes.root} onClick={() => review(storeId, id)}>
+		<Card title={name} className={classes.root} onClick={() => review(storeId, id)}>
 			<CardContent>
 				<LinesEllipsis text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" className={classes.name}/>
 				<div>{price}원</div>

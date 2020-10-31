@@ -1,0 +1,25 @@
+.order {
+	max-width: 90%;
+	text-align: center;
+	margin: auto;
+}
+
+.head {
+	width: 40%;
+}
+
+.cell {
+	width: 30%;
+}
+
+.order_column {
+	display: flex;
+	box-sizing: border-box;
+	margin-bottom: 1.5em;
+}
+
+.name {
+	color: rgba(51, 38, 29, 70);
+	margin-left: 3em;
+	font: 1.3em sans-serif;
+}
