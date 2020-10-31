@@ -144,9 +144,6 @@ class Store extends Component {
 	};
 
 	render() {
-		// const { id, storeId, name, storeName, description, price, photoUri, stars } = this.props.info;
-		// const { params } = this.props.match;
-		// Api.get('/stores/' + params.storeId + '/items').then(this.setState({ information: [ Response.data ] }));
 		const { menu, storeInfo } = this.state;
 		const { params } = this.props.match;
 
