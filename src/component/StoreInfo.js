@@ -15,8 +15,22 @@ function StoreInfo({ id, name, description, phone, location, address }) {
 			{/* <h4 style={{ display: 'flex' }}>
 				{location.lat} {location.lng}
 			</h4> */}
-			<div style={{ display: 'block', textAlign: 'left', fontSize: '0.9rem' }}>{address}</div>
+			<div style={{ display: 'block', textAlign: 'left', fontSize: '0.7rem' }}>{address}</div>
 		</div>
+		// <div onClick={handleClick} className="menu">
+		// 	<div className="menu_column">
+		// 		<MenuImage image={photoUri} />
+		// 	</div>
+
+		// 	<div className="menu_column">
+		// 		<h1>{name}</h1>
+		// 		<div className="menu_description">
+		// 			<LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" />
+		// 		</div>
+		// 		<div className="menu_price">{price}</div>
+		// 		<div className="menu_star">{stars}</div>
+		// 	</div>
+		// </div>
 	);
 }
 
