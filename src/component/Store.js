@@ -126,7 +126,7 @@ class Store extends Component {
 		const { params } = this.props.match;
 
 		if (params.ownerId) { // params 인자로 ownerId가 있을 경우 qr코드
-			let str = 'https://yaneodoo.github.io/Bistroad_Web/store/' + params.storeId; // qr url 변경 필요
+			let str = 'https://bistroad.kr/Bistroad_Web/store/' + params.storeId; // qr url 변경 필요
 			console.log(str);
 			QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {
 				if (error) console.error(error);

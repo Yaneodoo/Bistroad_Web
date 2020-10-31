@@ -20,20 +20,20 @@ export function Order({ info }) {
     };
 
 	return (
-        <TableContainer component={Paper}>
-        <Table aria-label="simple table">
-            <TableBody>
-                <TableRow>
-                    <TableCell align="left" className="head">
-                        <Moment format="YYYY/MM/DD">
-                            {dateToFormat}
-                        </Moment>
-                    </TableCell>
-                    <TableCell align="center" className="cell">{info.store.name}</TableCell>
-                    <TableCell align="right" className="cell">{price()}</TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
+        <TableContainer component={Paper} className="table">
+            <Table aria-label="simple table">
+                <TableBody>
+                    <TableRow>
+                        <TableCell align="left" className="head">
+                            <Moment format="YYYY/MM/DD">
+                                {dateToFormat}
+                            </Moment>
+                        </TableCell>
+                        <TableCell align="center" className="cell">{info.store.name}</TableCell>
+                        <TableCell align="right" className="cell">{price()}</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
         </TableContainer>
 	);
 }

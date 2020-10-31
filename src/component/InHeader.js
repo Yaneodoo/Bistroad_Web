@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 
 // table에 넣기
 const InHeader = () => (
-	<Container align="center">
+	<Container align="center" style={{maxWidth: "90%"}}>
 		<div>
 			<Link to="/">
 				<img src={logo} alt="Logo" height="70" />
