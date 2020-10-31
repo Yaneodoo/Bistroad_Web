@@ -1,0 +1,34 @@
+steps:
+  - name: 'node'
+    id: Install Yarn
+    entrypoint: "yarn"
+    args: [ 'install' ]
+  - name: 'node'
+    id: Yarn Test
+    entrypoint: "yarn"
+    args: [ 'test' ]
+  - name: 'node'
+    id: Yarn Build
+    entrypoint: "yarn"
+    args: [ 'run', 'build' ]
+  - name: "gcr.io/cloud-builders/docker"
+    id: Build Image
+    args: [ "build", "-t", "asia.gcr.io/bistroad-kr/bistroad-web:$BRANCH_NAME-$COMMIT_SHA", "." ]
+  - name: "gcr.io/cloud-builders/docker"
+    id: Push Image
+    args: [ "push", "asia.gcr.io/bistroad-kr/bistroad-web:$BRANCH_NAME-$COMMIT_SHA" ]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Update Deployment
+    args: [
+        'set',
+        'image',
+        'deployment',
+        'web',
+        'web=asia.gcr.io/bistroad-kr/bistroad-web:$BRANCH_NAME-$COMMIT_SHA',
+        '--record=true',
+        '-n',
+        'bistroad-prod'
+    ]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast3-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=bistroad-kr'
