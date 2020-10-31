@@ -10,6 +10,7 @@ class Review extends Component {
 		this._getReviewList();
 		this._getStoreInfo();
 		this._getItem();
+		window.scrollTo(0, 0)
 	}
 
 	_renderItem = () => {

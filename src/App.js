@@ -46,6 +46,10 @@ function App() {
 	const logout = () => setUser(null);
 	const classes = useStyles();
 
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	  }, [])
+
 	return (
 		<Router basename={process.env.PUBLIC_URL}>
 			<header className={cx('header')}>

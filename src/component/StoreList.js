@@ -83,13 +83,12 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 				'https://github.com/Yaneodoo/Bistroad_Web/blob/master/src/image/no-camera.png?raw=true'		};
 	}
 	return (
-		<Card className={classes.root} onClick={() => review(storeId, id)}>
-			{/* <CardHeader classes={{ title: classes.name }} title={name} subheader={price} /> */}
-			<CardContent classes={{ title: classes.name }}>
+		<Card  title={name} className={classes.root} onClick={() => review(storeId, id)}>
+			<CardContent>
 				<LinesEllipsis text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" className={classes.name}/>
 				<div>{price}원</div>
 			</CardContent>
-			<CardMedia className={classes.media} image={photo.thumbnailUrl} title={name} />
+			<CardMedia className={classes.media} image={photo.thumbnailUrl} />
 			<CardContent>
 				<Typography variant="body2" color="textSecondary" component="div">
 					<LinesEllipsis text={description} maxLine="1" ellipsis="..." trimRight basedOn="letters" />
@@ -100,21 +99,6 @@ export function MenuList({ id, storeId, name, description, price, photo, stars }
 				</div>
 			</CardContent>
 		</Card>
-		// <div className="menu" onClick={() => review(storeId, id)}>
-		// 	<div className="menu_column">
-		// 		<MenuImage />
-		// 		<h1>{name}</h1>
-		// 	</div>
-
-		// 	<div className="menu_column">
-		// 		<div className="menu_description">
-		// 			{/* <LinesEllipsis text={description} maxLine="3" ellipsis="..." trimRight basedOn="letters" /> */}
-		// 			{description}
-		// 		</div>
-		// 		<div className="menu_price">{price}</div>
-		// 		<div className="menu_star">{stars}</div>
-		// 	</div>
-		// </div>
 	);
 }
 

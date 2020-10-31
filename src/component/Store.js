@@ -21,11 +21,11 @@ class Store extends Component {
 		this._getMenuList();
 		this._getStoreInfo();
 		this.generateQR();
+		window.scrollTo(0, 0)
 	}
 
 	_renderMenu = () => {
 		const menu = this.state.menu.map((item, index) => {
-			console.log(item);
 			return (
 				<MenuList
 					name={item.name}

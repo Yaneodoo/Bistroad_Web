@@ -37,13 +37,12 @@ class Profile extends Component {
 		return (
 			<div style={{ minHeight: '750px' }}>
 				<InHeader />
-				<div style={{ paddingLeft: '24px', paddingRight: '24px' }}>
+				<div style={{ paddingLeft: '24px', paddingRight: '24px', maxWidth: '1000px', margin: 'auto' }}>
 					<h2 style={{ marginLeft: '2px' }}>마이페이지</h2>
-					<div style={{ marginLeft: '5px' }}>
-						<dt>이름</dt>
-						<dd style={{ marginBottom: '10px' }}>
+					<div>
+						<div style={{ marginBottom: '20px', fontWeight: '400' }}>
 							{fullName} {role === 'ROLE_STORE_OWNER' ? '점주님' : '손님'}
-						</dd>
+						</div>
 						<div>
 							{role === 'ROLE_STORE_OWNER' ? stores ? (
 								this._renderStore()
