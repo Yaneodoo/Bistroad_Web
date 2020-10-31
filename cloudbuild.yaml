@@ -4,10 +4,6 @@ steps:
     entrypoint: "yarn"
     args: [ 'install' ]
   - name: 'node'
-    id: Yarn Test
-    entrypoint: "yarn"
-    args: [ 'test' ]
-  - name: 'node'
     id: Yarn Build
     entrypoint: "yarn"
     args: [ 'run', 'build' ]
