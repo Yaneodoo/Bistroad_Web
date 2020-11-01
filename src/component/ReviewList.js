@@ -62,6 +62,7 @@ function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 		},
 		content: {
 			flex: '1 0 auto',
+			padding: '10px',
 		},
 		cover: {
 			height: 0,	
@@ -92,7 +93,7 @@ function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 	const dateToFormat = new Date(timestamp);
 
 	return (
-		<div>
+		<div style={{display: 'flex'}}>
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.cover}
@@ -108,9 +109,9 @@ function ReviewList({ writer, timestamp, contents, stars, photo, item }) {
 						<Moment format="YYYY/MM/DD" className={classes.info}>
                 			{dateToFormat}
            	 			</Moment>
-						<div style={{ width: '15%', float: 'right', textAlign: 'right'}}>
+						<div style={{ display: 'flex', float: 'right', textAlign: 'right'}}>
 							<StarIcon style={{ color: yellow[500], fontSize: '1rem' }} />
-							<div style={{ display: 'inline', fontSize: '1rem' }}>{stars}</div>
+							<div style={{ display: 'inline-block', fontSize: '1rem' }}>{Math.floor(stars*10)/10}</div>
 						</div>
 					</div>
 					
