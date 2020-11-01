@@ -64,7 +64,7 @@ class Home extends Component {
 				<InHeader />
 				<Typography component="div" align="center" style={{ minHeight: '800px' }}>
 					<div className={cx('home')}>
-						Bistroad는<br />작은 가게라는 뜻의 'Bistro'와<br />길이라는 뜻의'Road'의 합성어입니다.
+						Bistroad는<br />작은 가게라는 뜻의 'Bistro'와<br />길이라는 뜻의 'Road'의 합성어입니다.
 					</div>
 					<div>
 						<div style={{marginBottom: '20px'}}>현재 가까운 매장</div>
@@ -78,15 +78,5 @@ class Home extends Component {
 		);
 	}
 }
-// const Home = () => (
-// 	<div>
-// 		<InHeader />
-// 		<Typography component="div" align="center" style={{ minHeight: '600px' }}>
-// 			<div className={cx('home')}>
-// 				Bistroad는<br />작은 가게라는 뜻의 'Bistro'와<br />길이라는 뜻의'Road'의 합성어입니다.
-// 			</div>
-// 		</Typography>
-// 	</div>
-// );
 
 export default Home;
