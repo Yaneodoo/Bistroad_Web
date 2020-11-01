@@ -72,7 +72,6 @@ class Home extends Component {
 							{stores ? this.renderStores() : 'Loading'}
 						</div>
 					</div>
-		
 				</Typography>
 			</div>
 		);
