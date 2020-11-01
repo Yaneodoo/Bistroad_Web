@@ -29,6 +29,12 @@ function LoginForm({ authenticated, login, location }) {
 		}
 	};
 
+	const appKeyPress = (e) => {
+		if (e.key === 'Enter') {
+		  handleClick();
+		}
+	}
+
 	const { from } = location.state || { from: { pathname: '/' } };
 	if (authenticated) return <Redirect to={from} />;
 
@@ -66,6 +72,7 @@ function LoginForm({ authenticated, login, location }) {
 						type="password"
 						name="password"
 						onChange={({ target: { value } }) => setPassword(value)}
+						onKeyPress={appKeyPress}
 					/>
 					<Button onClick={handleClick} theme={btnTheme} fontSize="1rem" color="primary" variant="outlined">
 						로그인
