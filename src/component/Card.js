@@ -24,13 +24,13 @@ const useStyles = makeStyles((theme) => ({
 		padding: '0',
 	},
 	name: {
-		fontSize: '1.3rem',
+		fontSize: '1rem',
 		textOverflow: 'ellipsis',
 		padding: '3px 3px 3px 5px',
 		fontWeight: '600',
 	},
 	phone: {
-		fontSize: '1rem',
+		fontSize: '0.8rem',
 		padding: '3px 5px',
 	},
 	media: {
