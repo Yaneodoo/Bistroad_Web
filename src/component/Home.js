@@ -34,7 +34,6 @@ class Home extends Component {
 
 	renderStores = () => {
 		const stores = this.state.stores.map((store, index) => {
-			console.log(store);
 			if(store) {
 				return (
 					<RecipeReviewCard info={store} key={index}	/> //key prop으로 index 작성
@@ -52,7 +51,7 @@ class Home extends Component {
 			navigator.geolocation.getCurrentPosition(this.getNearStores);
 		}
 		else {
-			alert("Can't find you.");
+			alert("위치 정보를 가져올 수 없습니다.");
 		}
 	}
 
@@ -62,7 +61,7 @@ class Home extends Component {
 		return (
 			<div>
 				<InHeader />
-				<Typography component="div" align="center" style={{ minHeight: '800px' }}>
+				<Typography component="div" align="center" style={{ minHeight: '800px', maxWidth: '90%', margin: 'auto'}}>
 					<div className={cx('home')}>
 						Bistroad는<br />작은 가게라는 뜻의 'Bistro'와<br />길이라는 뜻의 'Road'의 합성어입니다.
 					</div>

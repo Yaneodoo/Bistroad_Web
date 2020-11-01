@@ -5,7 +5,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import { useHistory } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 
